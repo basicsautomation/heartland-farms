@@ -1,0 +1,34 @@
+type GalleryItem = 
+ record {
+   caption: text;
+   category: GalleryCategory;
+   id: nat;
+   imageUrl: text;
+ };
+type GalleryCategory = 
+ variant {
+   farm;
+   journey;
+   lifestyle;
+   vineyard;
+ };
+type BlogPost = 
+ record {
+   author: text;
+   content: text;
+   date: int;
+   excerpt: text;
+   id: nat;
+   slug: text;
+   title: text;
+ };
+service : {
+  getBlogPost: (slug: text) -> (opt BlogPost) query;
+  getBlogPosts: () -> (vec BlogPost) query;
+  getContactSubmissionCount: () -> (nat) query;
+  getGalleryItems: () -> (vec GalleryItem) query;
+  getGalleryItemsByCategory: (category: GalleryCategory) ->
+   (vec GalleryItem) query;
+  submitContact: (name: text, email: text, message: text, phone: opt text) ->
+   (nat);
+}

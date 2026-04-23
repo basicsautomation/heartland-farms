@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Fraunces", serif;
+    --font-body: "General Sans", sans-serif;
+    --font-mono: "Geist Mono", monospace;
+    --radius: 0.75rem;
+
+    --background: 0.97 0.02 140;
+    --foreground: 0.2 0.02 140;
+    --card: 0.99 0 0;
+    --card-foreground: 0.2 0.02 140;
+    --popover: 0.99 0 0;
+    --popover-foreground: 0.2 0.02 140;
+
+    --primary: 0.38 0.11 140;
+    --primary-foreground: 0.98 0 0;
+
+    --secondary: 0.48 0.12 33;
+    --secondary-foreground: 0.98 0 0;
+    --muted: 0.88 0.03 140;
+    --muted-foreground: 0.55 0.03 140;
+
+    --accent: 0.48 0.12 33;
+    --accent-foreground: 0.98 0 0;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.92 0.02 140;
+    --input: 0.92 0.02 140;
+    --ring: 0.38 0.11 140;
+
+    --chart-1: 0.38 0.11 140;
+    --chart-2: 0.48 0.12 33;
+    --chart-3: 0.65 0.08 90;
+    --chart-4: 0.72 0.09 70;
+    --chart-5: 0.55 0.1 50;
+
+    --sidebar: 0.98 0 0;
+    --sidebar-foreground: 0.2 0.02 140;
+    --sidebar-primary: 0.38 0.11 140;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.88 0.03 140;
+    --sidebar-accent-foreground: 0.3 0.02 140;
+    --sidebar-border: 0.92 0.02 140;
+    --sidebar-ring: 0.38 0.11 140;
+
+    /* Brand colors */
+    --color-whatsapp: #25d366;
+    --color-whatsapp-hover: #1ebe5e;
+  }
+
+  .dark {
+    --background: 0.14 0.01 140;
+    --foreground: 0.92 0.01 140;
+    --card: 0.2 0.01 140;
+    --card-foreground: 0.92 0.01 140;
+    --popover: 0.24 0.01 140;
+    --popover-foreground: 0.92 0.01 140;
+
+    --primary: 0.65 0.08 140;
+    --primary-foreground: 0.14 0.01 140;
+
+    --secondary: 0.68 0.11 33;
+    --secondary-foreground: 0.14 0.01 140;
+    --muted: 0.24 0.01 140;
+    --muted-foreground: 0.6 0.01 140;
+
+    --accent: 0.68 0.11 33;
+    --accent-foreground: 0.14 0.01 140;
+
+    --destructive: 0.65 0.19 22;
+    --destructive-foreground: 0.14 0.01 140;
+
+    --border: 0.3 0.01 140;
+    --input: 0.3 0.01 140;
+    --ring: 0.65 0.08 140;
+
+    --chart-1: 0.65 0.08 140;
+    --chart-2: 0.68 0.11 33;
+    --chart-3: 0.75 0.09 90;
+    --chart-4: 0.8 0.1 70;
+    --chart-5: 0.7 0.1 50;
+
+    --sidebar: 0.2 0.01 140;
+    --sidebar-foreground: 0.92 0.01 140;
+    --sidebar-primary: 0.65 0.08 140;
+    --sidebar-primary-foreground: 0.14 0.01 140;
+    --sidebar-accent: 0.24 0.01 140;
+    --sidebar-accent-foreground: 0.82 0.01 140;
+    --sidebar-border: 0.3 0.01 140;
+    --sidebar-ring: 0.65 0.08 140;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-elevated {
+    @apply bg-card shadow-lg border border-border transition-smooth hover:shadow-xl;
+  }
+
+  .gradient-earth {
+    @apply bg-gradient-to-br from-primary/5 to-secondary/5;
+  }
+
+  .text-premium-display {
+    @apply font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight;
+  }
+
+  .text-premium-subtitle {
+    @apply font-display text-lg sm:text-xl text-secondary font-semibold;
+  }
+}
