@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/Home-BZGEpV5u.js","assets/badge-DvN-CMzZ.js","assets/arrow-right-tzVlHylQ.js","assets/sun-ZsfzrhBq.js","assets/About-ele2yByP.js","assets/proxy-BvTcQrLp.js","assets/sprout--awjwXOS.js","assets/globe-wLzzQ1Mo.js","assets/Practices-CwdTOZcz.js","assets/book-open-vA3PdDZ7.js","assets/droplets-ArTl4aZu.js","assets/Products-DLWBcNf1.js","assets/card-B_Gm7TZ8.js","assets/Gallery-CrBGva0W.js","assets/useQueries-kKZOlNaz.js","assets/backend-CmKDUSkX.js","assets/Blog-DVMM5HwJ.js","assets/clock-DFDhd5qd.js","assets/BlogPost-DIi04kd5.js","assets/Contact-DvbpK5tv.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/Home-LqhwReEU.js","assets/badge-B1kUhnsd.js","assets/arrow-right-Dsnoy1i3.js","assets/sun-D2fwxOs7.js","assets/About-CQN09xmt.js","assets/proxy-BwF7As6b.js","assets/sprout-DMozvYIQ.js","assets/globe-B5NHEpKJ.js","assets/Practices-BuwexrOM.js","assets/book-open-oDj_8vSc.js","assets/droplets-vqSyv0aZ.js","assets/Products-BFXQgbuX.js","assets/card-Cw9yFsU6.js","assets/Gallery-8bV0J3lB.js","assets/useQueries-DWmkqVXT.js","assets/backend-CN5Y_TMj.js","assets/Blog-7yVlWZOp.js","assets/clock-CZvi4cxt.js","assets/BlogPost-cru02GY-.js","assets/Contact-HEI5IiuE.js"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -35034,14 +35034,14 @@ function Skeleton({ className, ...props }) {
     }
   );
 }
-const HomePage = reactExports.lazy(() => __vitePreload(() => import("./Home-BZGEpV5u.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0));
-const AboutPage = reactExports.lazy(() => __vitePreload(() => import("./About-ele2yByP.js"), true ? __vite__mapDeps([4,1,5,6,7]) : void 0));
-const PracticesPage = reactExports.lazy(() => __vitePreload(() => import("./Practices-CwdTOZcz.js"), true ? __vite__mapDeps([8,1,5,9,7,10,3,6,2]) : void 0));
-const ProductsPage = reactExports.lazy(() => __vitePreload(() => import("./Products-DLWBcNf1.js"), true ? __vite__mapDeps([11,1,12,5,2,6,10]) : void 0));
-const GalleryPage = reactExports.lazy(() => __vitePreload(() => import("./Gallery-CrBGva0W.js"), true ? __vite__mapDeps([13,1,14,15]) : void 0));
-const BlogPage = reactExports.lazy(() => __vitePreload(() => import("./Blog-DVMM5HwJ.js"), true ? __vite__mapDeps([16,1,14,15,9,2,17]) : void 0));
-const BlogPostPage = reactExports.lazy(() => __vitePreload(() => import("./BlogPost-DIi04kd5.js"), true ? __vite__mapDeps([18,1,14,15,17,6]) : void 0));
-const ContactPage = reactExports.lazy(() => __vitePreload(() => import("./Contact-DvbpK5tv.js"), true ? __vite__mapDeps([19,15,12,5]) : void 0));
+const HomePage = reactExports.lazy(() => __vitePreload(() => import("./Home-LqhwReEU.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0));
+const AboutPage = reactExports.lazy(() => __vitePreload(() => import("./About-CQN09xmt.js"), true ? __vite__mapDeps([4,1,5,6,7]) : void 0));
+const PracticesPage = reactExports.lazy(() => __vitePreload(() => import("./Practices-BuwexrOM.js"), true ? __vite__mapDeps([8,1,5,9,7,10,3,6,2]) : void 0));
+const ProductsPage = reactExports.lazy(() => __vitePreload(() => import("./Products-BFXQgbuX.js"), true ? __vite__mapDeps([11,1,12,5,2,6,10]) : void 0));
+const GalleryPage = reactExports.lazy(() => __vitePreload(() => import("./Gallery-8bV0J3lB.js"), true ? __vite__mapDeps([13,1,14,15]) : void 0));
+const BlogPage = reactExports.lazy(() => __vitePreload(() => import("./Blog-7yVlWZOp.js"), true ? __vite__mapDeps([16,1,14,15,9,2,17]) : void 0));
+const BlogPostPage = reactExports.lazy(() => __vitePreload(() => import("./BlogPost-cru02GY-.js"), true ? __vite__mapDeps([18,1,14,15,17,6]) : void 0));
+const ContactPage = reactExports.lazy(() => __vitePreload(() => import("./Contact-HEI5IiuE.js"), true ? __vite__mapDeps([19,15,12,5]) : void 0));
 function PageLoader() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-[60vh] flex flex-col gap-4 items-center justify-center px-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-8 w-64" }),

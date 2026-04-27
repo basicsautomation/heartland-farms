@@ -74,24 +74,6 @@ const fadeUp = {
   }),
 };
 
-const fadeLeft = {
-  hidden: { opacity: 0, x: -32 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: "easeOut" as const },
-  },
-};
-
-const fadeRight = {
-  hidden: { opacity: 0, x: 32 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: "easeOut" as const },
-  },
-};
-
 export default function About() {
   return (
     <div className="flex flex-col">
@@ -164,69 +146,14 @@ export default function About() {
         className="bg-background py-24 px-6"
         data-ocid="about.founder.section"
       >
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          {/* Photo */}
+        <div className="max-w-3xl mx-auto flex flex-col gap-8">
+          {/* Header */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeLeft}
-            className="relative"
-          >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
-              <img
-                src="/assets/generated/founder-portrait.dim_800x1000.jpg"
-                alt="Gurupad MS — founder of Heartland Farms — standing in his vineyard at golden hour"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
-              {/* Warm gradient overlay */}
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent"
-                aria-hidden="true"
-              />
-              <div className="absolute bottom-6 left-6 right-6">
-                <p className="font-display text-xl text-primary-foreground font-semibold">
-                  Gurupad MS
-                </p>
-                <p className="font-body text-primary-foreground/75 text-sm">
-                  Founder, Heartland Farms · Vijayapura, Karnataka
-                </p>
-              </div>
-            </div>
-
-            {/* Floating stat cards */}
-            <div className="absolute -right-6 top-8 hidden lg:flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-5 py-4 shadow-lg">
-              <Sprout className="text-primary" size={28} />
-              <span className="font-display text-2xl font-bold text-foreground">
-                5+
-              </span>
-              <span className="font-body text-xs text-muted-foreground text-center leading-snug">
-                Years
-                <br />
-                Farming
-              </span>
-            </div>
-            <div className="absolute -left-6 bottom-24 hidden lg:flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-5 py-4 shadow-lg">
-              <Leaf className="text-secondary" size={28} />
-              <span className="font-display text-2xl font-bold text-foreground">
-                100%
-              </span>
-              <span className="font-body text-xs text-muted-foreground text-center leading-snug">
-                Sustainable
-                <br />
-                Practices
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Narrative text */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeRight}
-            className="flex flex-col gap-6"
+            variants={fadeUp}
+            className="flex flex-col gap-4"
           >
             <Badge
               variant="outline"
@@ -238,34 +165,72 @@ export default function About() {
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-foreground leading-snug">
               "I had everything the world said I should want. And I was empty."
             </h2>
+          </motion.div>
 
-            <div className="font-body text-muted-foreground text-base leading-relaxed flex flex-col gap-4">
-              <p>
-                Gurupad MS spent years inside glass-and-steel offices,
-                engineering solutions for one of the world's most respected
-                industrial companies. The pay was good, the title respectable,
-                the future secure. Yet every visit back to Vijayapura stirred
-                something that no promotion could quiet.
-              </p>
-              <p>
-                In 2018, he did something most called reckless: he resigned from
-                Siemens and drove back to North Karnataka with soil on his mind
-                and no safety net. The first year was brutal. The learning curve
-                was steep, the failures public, and the neighbours politely
-                unconvinced.
-              </p>
-              <p>
-                But he brought something that traditional farming rarely had: an
-                engineer's discipline. He studied soil science obsessively,
-                experimented with drip irrigation, and built composting systems
-                from scratch. By 2019, the first proper harvest arrived. By
-                2022, Heartland Farms was a name people in Vijayapura began to
-                respect.
-              </p>
-              <p className="text-foreground font-medium italic border-l-4 border-primary/30 pl-4">
-                "I don't miss the salary. I miss nothing. This land — this work
-                — is the most meaningful thing I have ever done."
-              </p>
+          {/* Narrative */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="font-body text-muted-foreground text-base leading-relaxed flex flex-col gap-5"
+          >
+            <p>
+              Gurupad MS spent years inside glass-and-steel offices, engineering
+              solutions for one of the world's most respected industrial
+              companies. The pay was good, the title respectable, the future
+              secure. Yet every visit back to Vijayapura stirred something that
+              no promotion could quiet.
+            </p>
+            <p>
+              In 2018, he did something most called reckless: he resigned from
+              Siemens and drove back to North Karnataka with soil on his mind
+              and no safety net. The first year was brutal. The learning curve
+              was steep, the failures public, and the neighbours politely
+              unconvinced.
+            </p>
+            <p>
+              But he brought something that traditional farming rarely had: an
+              engineer's discipline. He studied soil science obsessively,
+              experimented with drip irrigation, and built composting systems
+              from scratch. By 2019, the first proper harvest arrived. By 2022,
+              Heartland Farms was a name people in Vijayapura began to respect.
+            </p>
+            <p className="text-foreground font-medium italic border-l-4 border-primary/30 pl-4">
+              "I don't miss the salary. I miss nothing. This land — this work —
+              is the most meaningful thing I have ever done."
+            </p>
+          </motion.div>
+
+          {/* Inline stat pills */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="flex flex-wrap gap-4 pt-2"
+          >
+            <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-5 py-3 shadow-sm">
+              <Sprout className="text-primary" size={22} />
+              <div>
+                <p className="font-display text-xl font-bold text-foreground leading-none">
+                  5+
+                </p>
+                <p className="font-body text-xs text-muted-foreground">
+                  Years Farming
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-5 py-3 shadow-sm">
+              <Leaf className="text-secondary" size={22} />
+              <div>
+                <p className="font-display text-xl font-bold text-foreground leading-none">
+                  100%
+                </p>
+                <p className="font-body text-xs text-muted-foreground">
+                  Sustainable Practices
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>

@@ -1,5 +1,5 @@
-import "./index-B8sDWgsi.js";
-import { u as useQuery, a as useActor, c as createActor } from "./backend-CmKDUSkX.js";
+import "./index-B_yqDsmv.js";
+import { u as useQuery, a as useActor, c as createActor } from "./backend-CN5Y_TMj.js";
 function useBackendActor() {
   return useActor(createActor);
 }

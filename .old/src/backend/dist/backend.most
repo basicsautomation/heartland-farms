@@ -1,0 +1,50 @@
+// Version: 1.0.0
+type BlogPost__496695373 =
+  {
+    author : Text;
+    content : Text;
+    date : Int;
+    excerpt : Text;
+    id : Nat;
+    slug : Text;
+    title : Text
+  };
+type ContactSubmission__657808989 =
+  {
+    email : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    phone : ?Text;
+    timestamp : Int
+  };
+type GalleryCategory__449810657 = {#farm; #journey; #lifestyle; #vineyard};
+type GalleryItem__640770410 =
+  {
+    caption : Text;
+    category : GalleryCategory__449810657;
+    id : Nat;
+    imageUrl : Text
+  };
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+actor {
+  stable galleryItems :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?GalleryItem__640770410]];
+      var elementIndex : Nat__490723111
+    };
+  stable posts :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?BlogPost__496695373]];
+      var elementIndex : Nat__490723111
+    };
+  stable submissions :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ContactSubmission__657808989]];
+      var elementIndex : Nat__490723111
+    }
+};

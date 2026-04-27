@@ -667,14 +667,8 @@ video {
 .-left-12 {
   left: -3rem;
 }
-.-left-6 {
-  left: -1.5rem;
-}
 .-right-12 {
   right: -3rem;
-}
-.-right-6 {
-  right: -1.5rem;
 }
 .-top-12 {
   top: -3rem;
@@ -682,14 +676,8 @@ video {
 .bottom-0 {
   bottom: 0px;
 }
-.bottom-24 {
-  bottom: 6rem;
-}
 .bottom-4 {
   bottom: 1rem;
-}
-.bottom-6 {
-  bottom: 1.5rem;
 }
 .bottom-8 {
   bottom: 2rem;
@@ -705,9 +693,6 @@ video {
 }
 .left-4 {
   left: 1rem;
-}
-.left-6 {
-  left: 1.5rem;
 }
 .left-\[50\%\] {
   left: 50%;
@@ -726,9 +711,6 @@ video {
 }
 .right-4 {
   right: 1rem;
-}
-.right-6 {
-  right: 1.5rem;
 }
 .top-0 {
   top: 0px;
@@ -753,9 +735,6 @@ video {
 }
 .top-6 {
   top: 1.5rem;
-}
-.top-8 {
-  top: 2rem;
 }
 .top-\[1px\] {
   top: 1px;
@@ -976,9 +955,6 @@ video {
 }
 .aspect-\[4\/3\] {
   aspect-ratio: 4/3;
-}
-.aspect-\[4\/5\] {
-  aspect-ratio: 4/5;
 }
 .aspect-square {
   aspect-ratio: 1 / 1;
@@ -1863,11 +1839,6 @@ video {
   --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
-.from-primary\/50 {
-  --tw-gradient-from: oklch(var(--primary) / 0.5) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
 .from-primary\/70 {
   --tw-gradient-from: oklch(var(--primary) / 0.7) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(255 255 255 / 0) var(--tw-gradient-to-position);
@@ -1902,10 +1873,6 @@ video {
 .via-secondary\/70 {
   --tw-gradient-to: rgb(255 255 255 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), oklch(var(--secondary) / 0.7) var(--tw-gradient-via-position), var(--tw-gradient-to);
-}
-.via-transparent {
-  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 .to-accent\/30 {
   --tw-gradient-to: oklch(var(--accent) / 0.3) var(--tw-gradient-to-position);
@@ -4443,10 +4410,6 @@ video {
 
   .lg\:col-span-3 {
     grid-column: span 3 / span 3;
-  }
-
-  .lg\:flex {
-    display: flex;
   }
 
   .lg\:grid-cols-2 {

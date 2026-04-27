@@ -1,8 +1,8 @@
-import { c as createLucideIcon, j as jsxRuntimeExports, a as Leaf, L as Link } from "./index-B8sDWgsi.js";
-import { B as Badge } from "./badge-DvN-CMzZ.js";
-import { m as motion } from "./proxy-BvTcQrLp.js";
-import { S as Sprout } from "./sprout--awjwXOS.js";
-import { F as FlaskConical, G as Globe } from "./globe-wLzzQ1Mo.js";
+import { c as createLucideIcon, j as jsxRuntimeExports, a as Leaf, L as Link } from "./index-B_yqDsmv.js";
+import { B as Badge } from "./badge-B1kUhnsd.js";
+import { m as motion } from "./proxy-BwF7As6b.js";
+import { S as Sprout } from "./sprout-DMozvYIQ.js";
+import { F as FlaskConical, G as Globe } from "./globe-B5NHEpKJ.js";
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -92,22 +92,6 @@ const fadeUp = {
     transition: { duration: 0.6, ease: "easeOut", delay: i * 0.1 }
   })
 };
-const fadeLeft = {
-  hidden: { opacity: 0, x: -32 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: "easeOut" }
-  }
-};
-const fadeRight = {
-  hidden: { opacity: 0, x: 32 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: "easeOut" }
-  }
-};
 function About() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -187,67 +171,15 @@ function About() {
       {
         className: "bg-background py-24 px-6",
         "data-ocid": "about.founder.section",
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center", children: [
+        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-3xl mx-auto flex flex-col gap-8", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsxs(
             motion.div,
             {
               initial: "hidden",
               whileInView: "visible",
               viewport: { once: true },
-              variants: fadeLeft,
-              className: "relative",
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "img",
-                    {
-                      src: "/assets/generated/founder-portrait.dim_800x1000.jpg",
-                      alt: "Gurupad MS — founder of Heartland Farms — standing in his vineyard at golden hour",
-                      className: "w-full h-full object-cover",
-                      loading: "lazy"
-                    }
-                  ),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(
-                    "div",
-                    {
-                      className: "absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent",
-                      "aria-hidden": "true"
-                    }
-                  ),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute bottom-6 left-6 right-6", children: [
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl text-primary-foreground font-semibold", children: "Gurupad MS" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-body text-primary-foreground/75 text-sm", children: "Founder, Heartland Farms · Vijayapura, Karnataka" })
-                  ] })
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute -right-6 top-8 hidden lg:flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-5 py-4 shadow-lg", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(Sprout, { className: "text-primary", size: 28 }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-2xl font-bold text-foreground", children: "5+" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-body text-xs text-muted-foreground text-center leading-snug", children: [
-                    "Years",
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                    "Farming"
-                  ] })
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute -left-6 bottom-24 hidden lg:flex flex-col items-center gap-2 bg-card border border-border rounded-xl px-5 py-4 shadow-lg", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx(Leaf, { className: "text-secondary", size: 28 }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display text-2xl font-bold text-foreground", children: "100%" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "font-body text-xs text-muted-foreground text-center leading-snug", children: [
-                    "Sustainable",
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-                    "Practices"
-                  ] })
-                ] })
-              ]
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            motion.div,
-            {
-              initial: "hidden",
-              whileInView: "visible",
-              viewport: { once: true },
-              variants: fadeRight,
-              className: "flex flex-col gap-6",
+              variants: fadeUp,
+              className: "flex flex-col gap-4",
               children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx(
                   Badge,
@@ -257,12 +189,48 @@ function About() {
                     children: "The Founder's Journey"
                   }
                 ),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-3xl sm:text-4xl font-bold text-foreground leading-snug", children: '"I had everything the world said I should want. And I was empty."' }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "font-body text-muted-foreground text-base leading-relaxed flex flex-col gap-4", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Gurupad MS spent years inside glass-and-steel offices, engineering solutions for one of the world's most respected industrial companies. The pay was good, the title respectable, the future secure. Yet every visit back to Vijayapura stirred something that no promotion could quiet." }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "In 2018, he did something most called reckless: he resigned from Siemens and drove back to North Karnataka with soil on his mind and no safety net. The first year was brutal. The learning curve was steep, the failures public, and the neighbours politely unconvinced." }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "But he brought something that traditional farming rarely had: an engineer's discipline. He studied soil science obsessively, experimented with drip irrigation, and built composting systems from scratch. By 2019, the first proper harvest arrived. By 2022, Heartland Farms was a name people in Vijayapura began to respect." }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground font-medium italic border-l-4 border-primary/30 pl-4", children: `"I don't miss the salary. I miss nothing. This land — this work — is the most meaningful thing I have ever done."` })
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-3xl sm:text-4xl font-bold text-foreground leading-snug", children: '"I had everything the world said I should want. And I was empty."' })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            motion.div,
+            {
+              initial: "hidden",
+              whileInView: "visible",
+              viewport: { once: true },
+              variants: fadeUp,
+              className: "font-body text-muted-foreground text-base leading-relaxed flex flex-col gap-5",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Gurupad MS spent years inside glass-and-steel offices, engineering solutions for one of the world's most respected industrial companies. The pay was good, the title respectable, the future secure. Yet every visit back to Vijayapura stirred something that no promotion could quiet." }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "In 2018, he did something most called reckless: he resigned from Siemens and drove back to North Karnataka with soil on his mind and no safety net. The first year was brutal. The learning curve was steep, the failures public, and the neighbours politely unconvinced." }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "But he brought something that traditional farming rarely had: an engineer's discipline. He studied soil science obsessively, experimented with drip irrigation, and built composting systems from scratch. By 2019, the first proper harvest arrived. By 2022, Heartland Farms was a name people in Vijayapura began to respect." }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground font-medium italic border-l-4 border-primary/30 pl-4", children: `"I don't miss the salary. I miss nothing. This land — this work — is the most meaningful thing I have ever done."` })
+              ]
+            }
+          ),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            motion.div,
+            {
+              initial: "hidden",
+              whileInView: "visible",
+              viewport: { once: true },
+              variants: fadeUp,
+              className: "flex flex-wrap gap-4 pt-2",
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 bg-card border border-border rounded-xl px-5 py-3 shadow-sm", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Sprout, { className: "text-primary", size: 22 }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl font-bold text-foreground leading-none", children: "5+" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-body text-xs text-muted-foreground", children: "Years Farming" })
+                  ] })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 bg-card border border-border rounded-xl px-5 py-3 shadow-sm", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx(Leaf, { className: "text-secondary", size: 22 }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl font-bold text-foreground leading-none", children: "100%" }),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-body text-xs text-muted-foreground", children: "Sustainable Practices" })
+                  ] })
                 ] })
               ]
             }
