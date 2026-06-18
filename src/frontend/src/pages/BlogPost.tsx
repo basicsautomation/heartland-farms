@@ -1,109 +1,135 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Link, useParams } from "@tanstack/react-router";
-import { ArrowLeft, Calendar, Clock, Sprout, User } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { useGetBlogPost } from "../hooks/useQueries";
 import type { BlogPost } from "../types";
 
-// ── Full fallback content ───────────────────────────────────────────────────
+// ── Teja Controls industrial automation articles ────────────────────────────
 const FULL_POSTS: Record<string, BlogPost> = {
-  "why-i-left-corporate-life-for-the-farm": {
+  "plc-programming-rice-mills": {
     id: 1n,
-    slug: "why-i-left-corporate-life-for-the-farm",
-    title: "Why I Left Corporate Life for the Farm",
+    slug: "plc-programming-rice-mills",
+    title: "PLC Programming for Rice Mills: A Complete Guide",
     excerpt:
-      "After 15 years at Siemens, I traded boardrooms for farmland. Here's the honest account of what drove that decision — and why I've never looked back.",
-    author: "Gurupad MS",
-    date: BigInt(new Date("2024-03-15").getTime()),
-    content: `There's a particular silence on the farm just before sunrise — nothing like the silence of a conference room after a difficult question. One pulls you inward; the other opens everything up.
+      "Modern rice mill automation relies on robust PLC programming to deliver consistent milling quality, minimal downtime, and precise process control from paddy intake to finished rice packaging.",
+    author: "Teja Controls Engineering Team",
+    date: BigInt(new Date("2024-04-10").getTime()),
+    category: "Automation",
+    readTime: "8 min read",
+    content: `Rice milling is one of India's most critical food processing operations, and the transition from manual to automated control has transformed productivity across the industry. At the heart of every modern rice mill automation project is a well-architected PLC (Programmable Logic Controller) program that orchestrates cleaning, milling, grading, and packaging into a seamless, supervised process.
 
-I spent fifteen years at Siemens, moving through roles in engineering, project management, and finally, regional operations. By any measure, it was a successful career. Good salary. Prestige. A title that fit neatly on a business card. Yet by 2019, I'd grown restless in a way I couldn't easily name. The spreadsheets felt hollow. The KPIs, disconnected from anything that grew, breathed, or fed someone.
+A rice mill PLC program begins at paddy intake. Incoming raw paddy is weighed, moisture-checked, and routed to the appropriate pre-cleaner. Pre-cleaning PLCs typically manage vibratory screens, aspirators, and de-stoners in sequence, with interlocks that halt downstream equipment if the pre-cleaner is overwhelmed. Getting this sequencing right eliminates the most common cause of mechanical breakdowns in older mills.
 
-The turning point came during a visit to my family land in Vijayapura. My father — who'd farmed cotton and jowar all his life without once calling it "sustainable agriculture" — was struggling to hold on. The land was yielding less. Inputs were costing more. I sat with him for two weeks, and something shifted irreversibly.
+The milling section is where PLC programming demands the most precision. Rubber roll shellers must operate within a tight gap tolerance — too wide and yield drops, too narrow and broken rice percentage climbs. Modern PLC programs read rubber roll pressure sensors and automatically adjust roller gap via servo-actuated mechanisms. The result is milling consistency that no manual operator can reliably sustain across a 16-hour shift.
 
-I returned to Siemens, finished out my notice period, and enrolled in every short course on agronomy, soil science, and farm business I could find. People thought I was having a crisis. I was, but not the kind they imagined. It was a crisis of meaning — and the land was the answer.
+Whitening and polishing machines are controlled through load feedback loops. The PLC continuously monitors motor current draw and adjusts feed rates to keep whitening pressure within specification. Over-polishing wastes rice and increases energy consumption; under-polishing produces a product that won't meet export grade. The control logic balances both risks simultaneously.
 
-Starting Heartland Farms wasn't a romantic decision. It was a calculated one. I brought everything I knew about systems thinking, process optimization, and financial modelling into the soil. What I didn't bring was a template — because farming doesn't offer one. Every season is a negotiation with nature, and nature doesn't respect project timelines.
+Grading and length sorting present a different programming challenge. Colour sorters and length graders generate high-frequency reject signals that must be logged, counted, and reported to the SCADA layer without creating communication bottlenecks. We use interrupt-driven subroutines in our Siemens S7-1500 programs that handle sorter feedback at millisecond resolution while the main scan cycle continues uninterrupted.
 
-Three years on, I've lost crops to unseasonal rain, watched grape vines I tended for months succumb to fungal infection, and once nearly quit over a single catastrophic summer. But I've also stood at harvest holding Vijayapura grapes the color of ink and tasted something I'd never found in a boardroom: the clean, unmistakable pride of making something real.`,
+Packaging section PLCs integrate with weighing controllers, bag-sealing machines, and conveyor systems. Batch counts, shift totals, and alarm logs are all written to a database via OPC-UA, giving the mill manager a complete audit trail of every production run.
+
+The most important principle in rice mill PLC programming: every mechanical interlock must be captured in software, and every software interlock must be validated against the physical system during commissioning. We perform I/O checkout on 100% of signals before any automated sequence is run.
+
+Energy monitoring is now a standard component of our rice mill programs. Power meters on each major drive feed into the PLC via Modbus, and the data is aggregated into a per-tonne energy consumption metric that mill owners can track in real time. Across our recent projects, this visibility has reduced specific energy consumption by 12-18% within the first six months of operation.`,
   },
-  "farming-as-a-business-what-i-wish-i-knew": {
+  "scada-benefits-food-processing": {
     id: 2n,
-    slug: "farming-as-a-business-what-i-wish-i-knew",
-    title: "Farming as a Business — What I Wish I Knew",
+    slug: "scada-benefits-food-processing",
+    title: "SCADA Benefits for Food Processing Industries",
     excerpt:
-      "Soil doesn't care about spreadsheets. But smart farming absolutely does. Lessons from year one of running Heartland Farms like a startup.",
-    author: "Gurupad MS",
-    date: BigInt(new Date("2024-05-02").getTime()),
-    content: `Before I planted a single crop, I built a financial model. That model was wrong in twelve different ways. Here's what I've since learned about treating farming as the business it genuinely is.
+      "A SCADA system transforms scattered sensor data into actionable plant intelligence. For food processing facilities, the benefits go beyond visibility — they directly impact quality, compliance, and profitability.",
+    author: "Teja Controls Engineering Team",
+    date: BigInt(new Date("2024-06-15").getTime()),
+    category: "Technology",
+    readTime: "6 min read",
+    content: `Supervisory Control and Data Acquisition systems have become the operational backbone of modern food processing plants. Where operators once walked the floor with clipboards, today's SCADA gives a single engineer complete visibility into every motor, valve, sensor, and conveyor in the plant — from a single screen, updated in real time.
 
-The first mistake most farming entrepreneurs make — especially those coming from corporate backgrounds — is conflating efficiency with profitability. A farm can be extraordinarily efficient and still lose money if the crop mix is wrong, the market timing is off, or the cost of inputs isn't tracked with obsessive detail. I learned this in year one, when I optimised our irrigation system to near-perfection but sold grapes at the wrong moment and wiped out the margin gain entirely.
+The first and most immediate benefit is centralised alarm management. In a typical flour mill or dal processing plant, hundreds of process alarms can be generated in a single shift. Without SCADA, these alarms appear only on local panels, are often missed or silenced without documentation, and rarely get investigated for root cause. A well-configured SCADA system prioritises alarms by severity, records response times, and generates shift reports that identify chronic alarm sources. Plants that implement this discipline routinely reduce nuisance alarms by 60-70% within three months.
 
-Cash flow is a different animal on a farm than in any other business I've encountered. Your revenues are seasonal, clustered, and deeply weather-dependent. Your costs, however, are relentless — labour, water, fertiliser, equipment maintenance. Building a 12-month cash flow buffer before starting was the single most important financial decision I made.
+Batch traceability is a non-negotiable requirement for food processing plants supplying modern retail chains. SCADA systems can record every batch parameter — ingredient weights, process temperatures, cooking times, packaging lot numbers — and store them with a timestamp linking the finished product to its raw material inputs. When a quality issue arises, the investigation that would have taken days takes hours.
 
-Diversification saved us. We grow grapes, yes, but also pomegranates, pulses, and sunflowers. When one crop underperforms, the portfolio absorbs the shock. This isn't just risk management — it's what integrated farming has always been, long before management consultants put a framework around it.
+Energy management through SCADA has delivered measurable ROI in every food processing plant we've instrumented. Monitoring specific energy consumption by production unit reveals inefficiencies invisible at the utility meter level. One of our dal mill clients discovered their destoner was running unloaded for two hours per shift — a finding that reduced their electrical bill by approximately Rs 4 lakh per year, with zero capital expenditure.
 
-The market is brutally honest. Vijayapura produces some of India's finest table grapes, but proximity to quality means nothing without relationships. I spent six months building direct connections with distributors, export agents, and restaurant buyers in Bengaluru and Pune before our first major harvest. That groundwork has paid dividends every season since.
+Remote access is transforming how maintenance is done. Our SCADA systems support secure remote access, meaning our engineers can diagnose a PLC fault or adjust a control loop from Hyderabad while the plant operates in Punjab. Downtime that once required a two-day site visit is now often resolved in under an hour.
 
-Finally: hire slowly, but invest in people deeply. Our core farm team of eight has been with us since the start. Training them in soil health, irrigation management, and quality grading has compounded into a capability advantage that no piece of equipment can replicate.`,
+Data historian integration is the long-term value multiplier. Every process variable your SCADA records becomes a dataset for production optimisation. Correlating motor current trends with bearing temperature data predicts failures before they happen. The intelligence is in the data — SCADA is the system that captures it.`,
   },
-  "the-art-of-vijayapura-grape-cultivation": {
+  "automation-roi-milling-industry": {
     id: 3n,
-    slug: "the-art-of-vijayapura-grape-cultivation",
-    title: "The Art of Vijayapura Grape Cultivation",
+    slug: "automation-roi-milling-industry",
+    title: "Maximizing ROI with Industrial Automation",
     excerpt:
-      "North Karnataka's semi-arid climate is brutal and beautiful in equal measure. Discover how we coax exceptional grapes from the black cotton soil of Vijayapura.",
-    author: "Gurupad MS",
-    date: BigInt(new Date("2024-07-20").getTime()),
-    content: `Vijayapura sits in the Deccan Plateau at roughly 596 metres above sea level, surrounded by black cotton soil — known locally as "regur" — that cracks like old pottery in summer and swells into a sticky, water-retaining mass during the rains. It is, in almost every respect, the wrong kind of place to grow grapes. Which is exactly why the grapes here are exceptional.
+      "Industrial automation is a capital investment — and like any investment, it must be evaluated on returns. Understanding where automation delivers the fastest and most durable ROI helps mill owners make confident decisions.",
+    author: "Teja Controls Engineering Team",
+    date: BigInt(new Date("2024-08-22").getTime()),
+    category: "Business",
+    readTime: "7 min read",
+    content: `The question mill owners ask us most often is not "Can you automate this?" — it's "Will it pay back?" The answer is almost always yes, but the timeline and mechanism vary significantly depending on the plant's current state, production volume, and the specific processes being automated.
 
-The Sharad Seedless variety, grown extensively across Vijayapura and Solapur districts, produces a berry with a thin skin, high sugar content, and a clean finish that makes it sought after both domestically and in export markets across Southeast Asia, the Middle East, and Europe. The secret isn't despite the harsh conditions — it's because of them. Stress-grown fruit develops complexity that irrigated, pampered vines never achieve.
+Labour cost reduction is the most cited driver, but it's rarely the fastest payback. In our experience, the quickest ROI comes from yield improvement. A rice mill running at 67% head rice yield that can be pushed to 70% through precise PLC-controlled milling gap adjustment adds three percentage points of saleable output from the same input. At Rs 45 per kilogram for premium head rice, that translates directly to lakhs of rupees per month in additional revenue — without changing the raw material procurement, labour structure, or overhead.
 
-At Heartland Farms, we practice a vine training system called the Y-trellis, which maximises canopy exposure to sunlight while improving air circulation and reducing fungal pressure. Each vine is individually monitored during the fruit set phase — a two-week window in late winter when the entire harvest is determined. Miss it, and you're farming for next year.
+Downtime reduction is the second major lever. Manual mills experience regular unplanned stoppages due to jams, overloads, and mechanical failures that weren't predicted. Automated mills with current monitoring, vibration sensors, and predictive maintenance alerts can reduce unplanned downtime by 40-60%. For a mill operating at Rs 50 lakh per month in output, a 5% reduction in unplanned downtime is worth Rs 2.5 lakh per month in recovered production — every month, indefinitely.
 
-Pruning is where the art lives. We prune twice: once after harvest to reset the vine's energy, and once in a targeted "cane selection" exercise three months before the anticipated harvest. The second pruning is almost meditative — you're reading the vine, judging which canes carry the best potential, and committing to a direction. There is no undo.
+Energy efficiency improvements from automation typically deliver 10-20% reduction in specific energy consumption. Soft starters and VFDs on motors that run at variable loads, automatic shutoff of idle equipment, and optimised compressed air control all contribute. Energy savings are durable — once the capital investment is made, the savings compound over the asset life.
 
-Water management is critical. The black cotton soil holds moisture well, but it also suffocates roots when waterlogged. We run drip irrigation on a precise schedule, calibrated against evapotranspiration data and soil moisture sensors we installed in year two. This system reduced our water use by 40% while improving berry uniformity measurably.
+Quality premiums are harder to quantify but real. Export-grade rice commands a Rs 3-5 per kilogram premium over domestic grade. Achieving export grade consistently requires automated colour sorting, grading, and moisture management — processes that human operators cannot sustain reliably at scale. Our clients who have invested in this level of automation report that the quality premium alone funds the automation capital cost within 18-24 months.
 
-The harvest itself — typically between January and March — is done entirely by hand. Bunches are cut at a specific angle, sorted on-site, and packed within hours of picking. From vine to cold storage in under four hours is our standard. That discipline is what earns us a premium, and it's what makes every grape from Heartland Farms a direct reflection of the care that went into growing it.`,
+The total cost of ownership calculation must include after-sales support, spare parts, and software maintenance. At Teja Controls, we design systems using Siemens, ABB, and Schneider Electric components specifically because the replacement parts ecosystem is robust and the component lifetime is proven in industrial environments.`,
   },
-  "sustainable-agriculture-principles-and-practice": {
+  "control-panel-design-best-practices": {
     id: 4n,
-    slug: "sustainable-agriculture-principles-and-practice",
-    title: "Sustainable Agriculture: Principles and Practice",
+    slug: "control-panel-design-best-practices",
+    title: "Control Panel Design Best Practices",
     excerpt:
-      "Sustainability isn't a buzzword on our farm — it's the operating system. From drip irrigation to composting, here's how we farm with the future in mind.",
-    author: "Gurupad MS",
-    date: BigInt(new Date("2024-09-10").getTime()),
-    content: `The word "sustainable" has been laundered so thoroughly by marketing departments that it's nearly lost its meaning. On a working farm, sustainability isn't a positioning statement. It's the difference between farming next year and not farming next year.
+      "A well-designed control panel is the foundation of a reliable automation system. Poor panel design leads to overheating, interference, difficult maintenance, and shortened component life.",
+    author: "Teja Controls Engineering Team",
+    date: BigInt(new Date("2024-10-05").getTime()),
+    category: "Engineering",
+    readTime: "5 min read",
+    content: `Control panel design is where automation projects succeed or fail in the long run. A PLC program can be excellent and a SCADA system can be perfectly configured, but if the control panel that houses them is poorly designed, the system will be unreliable, difficult to maintain, and prone to premature failure. After designing and building several hundred panels, we've distilled our engineering standards into a set of principles we apply consistently on every project.
 
-Soil health is the foundation of everything. Healthy soil is a living ecosystem — billions of microorganisms per teaspoon, a complex web of fungi, bacteria, and organic matter that makes nutrients available, retains water, and resists erosion. Modern farming has spent decades destroying this system with synthetic inputs, deep tillage, and monoculture. We're rebuilding it, one season at a time.
+Thermal management is the single most important design consideration. Heat is the primary cause of premature component failure in control panels. Our design process begins with a thermal calculation: we sum the heat dissipation of every component inside the enclosure, calculate the ambient temperature rise, and specify cooling through natural convection, forced air, or air conditioning depending on the result. We target an internal panel temperature no more than 10 degrees C above the highest-rated component's maximum ambient specification.
 
-Our composting program converts all farm waste — vine prunings, pomace from the grape season, kitchen waste from the farm quarters — into rich organic matter that goes back into the soil. We apply compost at rates that increase organic carbon content year over year. This is not idealism. Organic carbon is directly correlated with water retention and yield stability. It's engineering, applied to biology.
+Cable management separates power and signal cables to prevent electromagnetic interference. In our standard designs, 415V power cables run on the left side of the panel, and 24V DC signal cables run on the right, separated by a grounded metal divider. This segregation eliminates 80% of the interference problems that plague poorly-designed panels. All cable runs are numbered and labelled at both ends, matching the engineering drawing set that we hand over at project completion.
 
-We use cover crops between seasons. Legumes like cowpea and green gram fix atmospheric nitrogen into the soil, reducing our dependence on urea fertiliser. They also suppress weeds, protect topsoil from wind erosion during the dry months, and provide habitat for beneficial insects. A field with a cover crop looks "weedy" to the untrained eye. It's actually working harder than bare soil ever could.
+Component selection follows a tier-1-only policy for safety-critical and hard-to-access items. MCBs, contactors, and overload relays are sourced from Schneider Electric, Siemens, or ABB. PLCs and drives are selected from the same tier. This is not brand preference — it is a maintenance and spares philosophy. When a component fails at 2 AM during a production run, the plant engineer needs to source a replacement from local distributors, not wait for an import.
 
-Integrated Pest Management (IPM) means we intervene surgically, not prophylactically. We monitor pest populations, set threshold levels, and respond only when those thresholds are crossed — first with biological controls, then with targeted, low-toxicity inputs if necessary. This keeps our input costs low and our ecosystem intact.
+Future expansion is designed in from the start. We reserve 20% spare space in every enclosure, include spare terminals on every rail, and leave documented spare capacity in the PLC program. The cost of this discipline is minimal — a slightly larger enclosure and a few extra terminal blocks. The value is that when the plant adds a new production line in three years, the automation upgrade is an extension rather than a replacement.
 
-Finally, we're building toward a closed-loop water system. Treated greywater from the farm quarters irrigates our orchard perimeter. Rainwater harvesting from our storage tanks supplements our well during peak demand. Every litre of water that enters this farm is used deliberately. In a district where groundwater tables have been falling for two decades, that's not just sustainable. It's survival.`,
+Documentation is the final deliverable that distinguishes a professional panel build. Every panel we deliver includes complete engineering drawings — single-line diagrams, schematic drawings, cabinet layouts, I/O lists, and cable schedules — in both paper and electronic format. We also provide operation and maintenance manuals with troubleshooting guides. A panel without documentation is a liability; a panel with complete documentation is an asset that any competent engineer can maintain for decades.`,
   },
 };
 
-const CATEGORY_MAP: Record<string, string> = {
-  "why-i-left-corporate-life-for-the-farm": "Founder's Story",
-  "farming-as-a-business-what-i-wish-i-knew": "Business",
-  "the-art-of-vijayapura-grape-cultivation": "Viticulture",
-  "sustainable-agriculture-principles-and-practice": "Sustainability",
+const RELATED_ARTICLES = Object.values(FULL_POSTS).map((p) => ({
+  slug: p.slug,
+  title: p.title,
+  category: p.category,
+  readTime: p.readTime,
+}));
+
+const CATEGORY_COLORS: Record<string, string> = {
+  Automation: "bg-accent/20 text-accent border-accent/30",
+  Technology: "bg-primary/20 text-primary-foreground border-primary/30",
+  Business: "bg-muted text-muted-foreground border-border",
+  Engineering: "bg-accent/15 text-accent border-accent/25",
 };
 
-function getCategory(slug: string): string {
-  return CATEGORY_MAP[slug] ?? "Knowledge";
-}
+const HERO_IMAGES: Record<string, string> = {
+  "plc-programming-rice-mills":
+    "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=1200&auto=format&fit=crop&q=80",
+  "scada-benefits-food-processing":
+    "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&auto=format&fit=crop&q=80",
+  "automation-roi-milling-industry":
+    "https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1200&auto=format&fit=crop&q=80",
+  "control-panel-design-best-practices":
+    "https://images.unsplash.com/photo-1601597111158-2fceff292cdc?w=1200&auto=format&fit=crop&q=80",
+};
 
-function estimateReadTime(content: string): number {
-  const words = content.trim().split(/\s+/).length;
-  return Math.max(3, Math.ceil(words / 200));
-}
+const DEFAULT_HERO =
+  "https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?w=1200&auto=format&fit=crop&q=80";
 
 function formatDate(timestamp: bigint): string {
   const ms = Number(timestamp);
@@ -157,7 +183,7 @@ export default function BlogPostPage() {
   const { slug } = useParams({ from: "/blog/$slug" });
   const { data: backendPost, isLoading } = useGetBlogPost(slug);
 
-  const post = backendPost ?? FULL_POSTS[slug] ?? null;
+  const post: BlogPost | null = backendPost ?? FULL_POSTS[slug] ?? null;
 
   if (isLoading) {
     return (
@@ -174,7 +200,7 @@ export default function BlogPostPage() {
         className="min-h-[60vh] bg-background flex flex-col items-center justify-center gap-4 px-6 text-center"
       >
         <p className="font-display text-2xl font-semibold text-foreground">
-          Post not found
+          Article not found
         </p>
         <p className="text-muted-foreground font-body">
           This article may have moved or been removed.
@@ -182,51 +208,63 @@ export default function BlogPostPage() {
         <Link
           to="/blog"
           data-ocid="blog_post.back_link"
-          className="inline-flex items-center gap-2 text-primary font-body font-medium hover:underline"
+          className="inline-flex items-center gap-2 text-accent font-body font-medium hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
-          Back to Blog
+          Back to Knowledge Hub
         </Link>
       </div>
     );
   }
 
-  const readTime = estimateReadTime(post.content || post.excerpt);
-  const category = getCategory(post.slug);
+  const heroImg = HERO_IMAGES[post.slug] ?? DEFAULT_HERO;
+  const badgeClass =
+    CATEGORY_COLORS[post.category] ?? CATEGORY_COLORS.Engineering;
+  const related = RELATED_ARTICLES.filter((a) => a.slug !== post.slug).slice(
+    0,
+    3,
+  );
 
   return (
     <div data-ocid="blog_post.page" className="min-h-screen bg-background">
-      {/* Page meta - dynamic title via document */}
-      {/* Hero section */}
-      <section className="bg-primary text-primary-foreground pt-14 pb-16 px-6">
-        <div className="max-w-3xl mx-auto">
-          {/* Back link */}
-          <Link
-            to="/blog"
-            data-ocid="blog_post.back_link"
-            className="inline-flex items-center gap-1.5 text-sm font-body text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200 mb-8"
+      {/* Hero band */}
+      <section className="bg-primary pt-10 pb-14 px-4">
+        <div className="max-w-7xl mx-auto">
+          <nav
+            aria-label="Breadcrumb"
+            data-ocid="blog_post.breadcrumb"
+            className="flex items-center gap-2 text-sm font-body text-primary-foreground/60 mb-8"
           >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Stories
-          </Link>
-
-          {/* Category */}
-          <Badge className="mb-4 bg-primary-foreground/15 text-primary-foreground border border-primary-foreground/20 font-body text-xs">
-            {category}
-          </Badge>
-
-          {/* Headline */}
-          <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-5">
+            <Link
+              to="/"
+              className="hover:text-primary-foreground transition-colors"
+            >
+              Home
+            </Link>
+            <span>/</span>
+            <Link
+              to="/blog"
+              className="hover:text-primary-foreground transition-colors"
+            >
+              Knowledge Hub
+            </Link>
+            <span>/</span>
+            <span className="text-primary-foreground/90 truncate max-w-[200px] sm:max-w-xs">
+              {post.title}
+            </span>
+          </nav>
+          <span
+            className={`inline-block text-xs font-body font-semibold px-3 py-1 rounded-full border mb-4 ${badgeClass}`}
+          >
+            {post.category}
+          </span>
+          <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground leading-tight mb-5 max-w-4xl">
             {post.title}
           </h1>
-
-          {/* Excerpt / sub-headline */}
-          <p className="font-body text-base sm:text-lg opacity-80 leading-relaxed mb-8">
+          <p className="font-body text-primary-foreground/75 text-base sm:text-lg leading-relaxed max-w-3xl mb-8">
             {post.excerpt}
           </p>
-
-          {/* Meta row */}
-          <div className="flex flex-wrap items-center gap-4 text-sm font-body text-primary-foreground/70">
+          <div className="flex flex-wrap items-center gap-5 text-sm font-body text-primary-foreground/60">
             <span className="flex items-center gap-1.5">
               <User className="w-3.5 h-3.5" />
               {post.author}
@@ -237,51 +275,93 @@ export default function BlogPostPage() {
             </span>
             <span className="flex items-center gap-1.5">
               <Clock className="w-3.5 h-3.5" />
-              {readTime} min read
+              {post.readTime}
             </span>
           </div>
         </div>
       </section>
 
-      {/* Decorative bar */}
-      <div className="h-1.5 bg-gradient-to-r from-secondary via-primary/30 to-secondary/40" />
-
-      {/* Article body */}
-      <article className="max-w-3xl mx-auto px-6 py-14">
-        <div data-ocid="blog_post.content">
-          {renderContent(post.content || post.excerpt)}
-        </div>
-
-        {/* Divider */}
-        <div className="h-px bg-border my-10" />
-
-        {/* Bottom CTA */}
-        <div
-          data-ocid="blog_post.cta_section"
-          className="bg-muted/40 border border-border rounded-2xl p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5"
-        >
-          <div className="flex items-start gap-3">
-            <div className="mt-1 p-2 bg-primary/10 rounded-lg">
-              <Sprout className="w-5 h-5 text-primary" />
+      {/* Content + sidebar */}
+      <section className="bg-background py-14 px-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+          <article className="lg:col-span-2">
+            <div className="rounded-2xl overflow-hidden border border-border mb-10 shadow-lg">
+              <img
+                src={heroImg}
+                alt={post.title}
+                className="w-full h-64 sm:h-80 object-cover"
+                loading="lazy"
+              />
             </div>
-            <div>
-              <p className="font-display text-lg font-semibold text-foreground mb-1">
-                See the farm in action
-              </p>
-              <p className="text-sm text-muted-foreground font-body">
-                Words only go so far. Come walk our fields and see how we grow.
-              </p>
+            <div data-ocid="blog_post.content">
+              {renderContent(post.content || post.excerpt)}
             </div>
-          </div>
-          <Link
-            to="/contact"
-            data-ocid="blog_post.explore_cta"
-            className="shrink-0 inline-flex items-center gap-2 bg-primary text-primary-foreground font-body font-medium px-5 py-2.5 rounded-xl hover:bg-primary/90 transition-smooth text-sm whitespace-nowrap"
-          >
-            Explore Our Farm
-          </Link>
+            <div className="mt-10 pt-8 border-t border-border">
+              <Link
+                to="/blog"
+                data-ocid="blog_post.back_link"
+                className="inline-flex items-center gap-2 font-body font-semibold text-accent hover:underline"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to Knowledge Hub
+              </Link>
+            </div>
+          </article>
+
+          <aside className="lg:sticky lg:top-24 flex flex-col gap-5">
+            <h3 className="font-display text-lg font-bold text-foreground mb-1">
+              Related Articles
+            </h3>
+            {related.map((article) => (
+              <Link
+                key={article.slug}
+                to="/blog/$slug"
+                params={{ slug: article.slug }}
+                data-ocid="blog_post.related_item"
+              >
+                <Card className="p-5 border-border hover:border-accent/50 hover:shadow-md transition-all duration-200 group cursor-pointer">
+                  <Badge
+                    variant="outline"
+                    className="text-xs font-body mb-2 border-accent/30 text-accent"
+                  >
+                    {article.category}
+                  </Badge>
+                  <p className="font-display text-sm font-semibold text-foreground group-hover:text-accent transition-colors leading-snug mb-3">
+                    {article.title}
+                  </p>
+                  <div className="flex items-center justify-between text-xs font-body text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />
+                      {article.readTime}
+                    </span>
+                    <span className="flex items-center gap-1 text-accent">
+                      Read <ArrowRight className="w-3 h-3" />
+                    </span>
+                  </div>
+                </Card>
+              </Link>
+            ))}
+            <Card className="mt-4 p-6 bg-primary border-0 text-primary-foreground">
+              <p className="font-display text-base font-bold mb-2">
+                Need an Automation Solution?
+              </p>
+              <p className="font-body text-sm text-primary-foreground/75 mb-4">
+                Our engineers are ready to assess your plant and deliver a
+                custom proposal.
+              </p>
+              <Button
+                asChild
+                type="button"
+                className="w-full bg-accent hover:bg-accent/90 text-white font-body font-semibold text-sm"
+              >
+                <Link to="/contact" data-ocid="blog_post.quote_cta_button">
+                  Request a Quote
+                </Link>
+              </Button>
+            </Card>
+          </aside>
         </div>
-      </article>
+      </section>
     </div>
   );
 }

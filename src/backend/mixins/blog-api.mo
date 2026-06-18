@@ -12,4 +12,7 @@ mixin (
   public query func getBlogPost(slug : Text) : async ?Types.BlogPost {
     BlogLib.getBySlug(posts, slug);
   };
+  public query func getBlogPostsByCategory(category : Text) : async [Types.BlogPost] {
+    BlogLib.getByCategory(posts, category);
+  };
 };

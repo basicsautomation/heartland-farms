@@ -7,10 +7,10 @@ var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
 var _client, _currentResult, _currentMutation, _mutateOptions, _MutationObserver_instances, updateResult_fn, notify_fn, _a;
-import { f as Subscribable, s as shallowEqualObjects, h as hashKey, g as getDefaultState, n as notifyManager, i as useQueryClient, r as reactExports, k as noop, l as shouldThrowError, c as createLucideIcon, j as jsxRuntimeExports, d as cn, P as Primitive, R as React, B as Button, M as MapPin, m as Phone, o as Mail, Y as Youtube, p as ue } from "./index-B_yqDsmv.js";
-import { a as useActor, c as createActor } from "./backend-CN5Y_TMj.js";
-import { C as Card } from "./card-Cw9yFsU6.js";
-import { m as motion } from "./proxy-BwF7As6b.js";
+import { a as Subscribable, s as shallowEqualObjects, h as hashKey, g as getDefaultState, n as notifyManager, b as useQueryClient, r as reactExports, d as noop, e as shouldThrowError, c as createLucideIcon, j as jsxRuntimeExports, f as cn, P as Primitive, R as React, B as Button, M as MapPin, i as Phone, k as Mail, l as ue } from "./index-D6M-L3AT.js";
+import { u as useActor, c as createActor } from "./backend-D5qmZiZF.js";
+import { C as Card } from "./card-BVeU_Je5.js";
+import { m as motion } from "./proxy-DXsIDOOG.js";
 var MutationObserver = (_a = class extends Subscribable {
   constructor(client, options) {
     super();
@@ -387,27 +387,33 @@ function IconBase(props) {
 function SiWhatsapp(props) {
   return GenIcon({ "attr": { "role": "img", "viewBox": "0 0 24 24" }, "child": [{ "tag": "path", "attr": { "d": "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" }, "child": [] }] })(props);
 }
-const WHATSAPP_LINK = "https://wa.me/919980055940";
-const YOUTUBE_LINK = "https://www.youtube.com/@heartlandfarms";
-const MAPS_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d122041.19!2d75.72!3d16.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc5d1d28e7d9e03%3A0x13aa6e0c11ee8a1!2sVijayapura%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1680000000000";
-const INITIAL_FORM = { name: "", email: "", phone: "", message: "" };
+const WHATSAPP_LINK = "https://wa.me/919902003486";
+const MAPS_EMBED = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.1!2d77.47!3d13.08!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae22b0b7b6c9c9%3A0x1234567890abcdef!2sDasanapura%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1680000000000";
+const INITIAL_FORM = {
+  name: "",
+  company: "",
+  email: "",
+  phone: "",
+  industry: "",
+  message: ""
+};
 const contactInfoItems = [
   {
     icon: MapPin,
-    label: "Our Farm",
-    value: "Vijayapura, North Karnataka, India"
+    label: "Our Office",
+    value: "Tajas Controls #5, Subramanya Swamy Temple Road, Lakshmipura Post, Dasanapura Hobli, Kachohalli Industrial Area Road, Bengaluru North – 560091"
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+91 99800 55940",
-    href: "tel:+919980055940"
+    value: "+91 9902003486",
+    href: "tel:+919902003486"
   },
   {
     icon: Mail,
     label: "Email",
-    value: "info@heartlandfarms.in",
-    href: "mailto:info@heartlandfarms.in"
+    value: "Revana@tajascontrols.com",
+    href: "mailto:Revana@tajascontrols.com"
   }
 ];
 function ContactPage() {
@@ -419,14 +425,16 @@ function ContactPage() {
       if (!actor) throw new Error("Not connected");
       return actor.submitContact(
         data.name,
+        data.company ?? "",
+        data.phone ?? "",
         data.email,
-        data.message,
-        data.phone || null
+        data.industry ?? "",
+        data.message
       );
     },
     onSuccess: () => {
       ue.success("Message sent! We'll get back to you soon.", {
-        description: "Gurupad and the Heartland Farms team will be in touch.",
+        description: "The Teja Controls team will be in touch within 24 hours.",
         duration: 5e3
       });
       setForm(INITIAL_FORM);
@@ -469,17 +477,17 @@ function ContactPage() {
           transition: { duration: 0.7 },
           className: "relative z-10 max-w-2xl mx-auto",
           children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-premium-subtitle text-primary-foreground/80 mb-2", children: "Heartland Farms" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-4xl sm:text-5xl md:text-6xl font-bold text-primary-foreground leading-tight mb-4", children: "Get in Touch" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-primary-foreground/75 text-lg max-w-lg mx-auto font-body", children: "Whether you have a question about our produce, want to visit the farm, or simply want to say hello — we'd love to hear from you." })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-premium-subtitle text-primary-foreground/80 mb-2", children: "Teja Controls" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "font-display text-4xl sm:text-5xl md:text-6xl font-bold text-primary-foreground leading-tight mb-4", children: "Request a Quote" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-primary-foreground/75 text-lg max-w-lg mx-auto font-body", children: "Ready to automate your plant? Contact us for control panel design, PLC programming, SCADA development, and installation services." })
           ]
         }
       )
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-primary py-6 px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center sm:text-left", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-primary-foreground font-display text-lg font-semibold", children: "Prefer to chat directly?" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-primary-foreground/70 text-sm font-body", children: "Reach Gurupad instantly on WhatsApp — fastest way to connect." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-primary-foreground font-display text-lg font-semibold", children: "Prefer to discuss your project directly?" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-primary-foreground/70 text-sm font-body", children: "Reach our industrial automation team on WhatsApp — fastest way to get a quote." })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
         "a",
@@ -505,8 +513,8 @@ function ContactPage() {
           viewport: { once: true },
           transition: { duration: 0.6 },
           children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-2xl sm:text-3xl font-bold text-foreground mb-2", children: "Send Us a Message" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body mb-8", children: "Fill out the form below and we'll respond within 24 hours." }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-2xl sm:text-3xl font-bold text-foreground mb-2", children: "Request a Quote" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body mb-8", children: "Fill out the form below and our engineering team will respond within 24 hours." }),
             mutation.isSuccess ? /* @__PURE__ */ jsxRuntimeExports.jsxs(
               "div",
               {
@@ -514,8 +522,8 @@ function ContactPage() {
                 className: "flex flex-col items-center text-center py-16 gap-4 bg-muted/40 rounded-2xl border border-border",
                 children: [
                   /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheck, { className: "text-primary", size: 48 }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl font-semibold text-foreground", children: "Message Received!" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body max-w-xs", children: "Thank you for reaching out. Gurupad will get back to you shortly." }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display text-xl font-semibold text-foreground", children: "Quote Request Received!" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body max-w-xs", children: "Thank you for reaching out. The Teja Controls team will get back to you within 24 hours." }),
                   /* @__PURE__ */ jsxRuntimeExports.jsx(
                     Button,
                     {
@@ -618,6 +626,26 @@ function ContactPage() {
                     ] })
                   ] }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1.5", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Label,
+                      {
+                        htmlFor: "contact-company",
+                        className: "font-body text-sm font-medium",
+                        children: "Company Name"
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Input,
+                      {
+                        id: "contact-company",
+                        "data-ocid": "contact.company_input",
+                        placeholder: "Your company name",
+                        value: form.company,
+                        onChange: handleChange("company")
+                      }
+                    )
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1.5", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsxs(
                       Label,
                       {
@@ -643,6 +671,35 @@ function ContactPage() {
                     )
                   ] }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1.5", children: [
+                    /* @__PURE__ */ jsxRuntimeExports.jsx(
+                      Label,
+                      {
+                        htmlFor: "contact-industry",
+                        className: "font-body text-sm font-medium",
+                        children: "Industry"
+                      }
+                    ),
+                    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+                      "select",
+                      {
+                        id: "contact-industry",
+                        "data-ocid": "contact.industry_select",
+                        value: form.industry,
+                        onChange: (e) => setForm((prev) => ({ ...prev, industry: e.target.value })),
+                        className: "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-body ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                        children: [
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "", children: "Select your industry" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Rice Mills", children: "Rice Mills" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Flour Mills", children: "Flour Mills" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Dal Mills", children: "Dal Mills" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Feed Mills", children: "Feed Mills" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Food Processing", children: "Food Processing" }),
+                          /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "Packaging", children: "Packaging" })
+                        ]
+                      }
+                    )
+                  ] }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col gap-1.5", children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsxs(
                       Label,
                       {
@@ -659,7 +716,7 @@ function ContactPage() {
                       {
                         id: "contact-message",
                         "data-ocid": "contact.message_textarea",
-                        placeholder: "Tell us what's on your mind — farm visits, produce enquiries, partnerships, or just a hello!",
+                        placeholder: "Describe your project — panel type, industry, capacity, automation requirements, or any specific queries.",
                         value: form.message,
                         onChange: handleChange("message"),
                         onBlur: () => !form.message.trim() && setErrors((p) => ({
@@ -717,11 +774,11 @@ function ContactPage() {
           className: "flex flex-col gap-6",
           children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Card, { className: "p-6 bg-muted/40 border-border", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-primary text-lg", children: "G" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 rounded-full bg-primary/10 border-2 border-primary/30 flex items-center justify-center shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-primary text-lg", children: "T" }) }),
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display font-semibold text-foreground text-base", children: "Gurupad MS" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body text-sm", children: "Founder, Heartland Farms" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground/75 font-body text-sm mt-2 leading-relaxed", children: `"From corporate boardrooms to fertile fields — I built Heartland Farms to prove that farming is India's most fulfilling future. Let's connect."` })
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display font-semibold text-foreground text-base", children: "Teja Controls" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body text-sm", children: "Industrial Automation Specialists" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-foreground/75 font-body text-sm mt-2 leading-relaxed", children: '"With 15+ years of expertise in electrical control panels, PLC programming, and SCADA systems — we deliver reliable automation solutions across India."' })
               ] })
             ] }) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col gap-3", children: contactInfoItems.map(({ icon: Icon, label, value, href }) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -757,25 +814,13 @@ function ContactPage() {
                   /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-[#25D366] rounded-2xl flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-smooth", children: /* @__PURE__ */ jsxRuntimeExports.jsx(SiWhatsapp, { size: 24, className: "text-white" }) }),
                   /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
                     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display font-semibold text-foreground text-base", children: "WhatsApp Chat" }),
-                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body text-sm", children: "+91 99800 55940 — fastest reply" })
+                    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body text-sm", children: "+91 9902003486 — fastest reply" })
                   ] })
                 ]
               }
             ),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 pt-1", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground font-body text-sm", children: "Follow our journey:" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "a",
-                {
-                  href: YOUTUBE_LINK,
-                  target: "_blank",
-                  rel: "noopener noreferrer",
-                  "data-ocid": "contact.youtube_link",
-                  "aria-label": "Heartland Farms YouTube Channel",
-                  className: "w-9 h-9 bg-muted rounded-full flex items-center justify-center hover:bg-red-500/10 hover:text-red-500 transition-smooth",
-                  children: /* @__PURE__ */ jsxRuntimeExports.jsx(Youtube, { size: 18 })
-                }
-              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground font-body text-sm", children: "Connect with us:" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx(
                 "a",
                 {
@@ -783,7 +828,7 @@ function ContactPage() {
                   target: "_blank",
                   rel: "noopener noreferrer",
                   "data-ocid": "contact.whatsapp_social_link",
-                  "aria-label": "Heartland Farms WhatsApp",
+                  "aria-label": "Teja Controls WhatsApp",
                   className: "w-9 h-9 bg-muted rounded-full flex items-center justify-center hover:bg-[#25D366]/20 hover:text-[#25D366] transition-smooth",
                   children: /* @__PURE__ */ jsxRuntimeExports.jsx(SiWhatsapp, { size: 18 })
                 }
@@ -803,8 +848,8 @@ function ContactPage() {
           transition: { duration: 0.5 },
           className: "text-center mb-8",
           children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-2xl sm:text-3xl font-bold text-foreground mb-2", children: "Find Us in Vijayapura" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body", children: "Located in the heart of North Karnataka's agricultural belt — known for its legendary Vijayapura grapes." })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "font-display text-2xl sm:text-3xl font-bold text-foreground mb-2", children: "Find Us in Bengaluru North" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground font-body", children: "Based at Kachohalli Industrial Area, Bengaluru North – 560091, serving Rice Mills, Flour Mills, Dal Mills, and Food Processing Industries across India." })
           ]
         }
       ),
@@ -819,7 +864,7 @@ function ContactPage() {
           allowFullScreen: true,
           loading: "lazy",
           referrerPolicy: "no-referrer-when-downgrade",
-          title: "Heartland Farms location — Vijayapura, Karnataka"
+          title: "Teja Controls location — Kachohalli Industrial Area, Bengaluru North, Karnataka"
         }
       ) })
     ] }) })

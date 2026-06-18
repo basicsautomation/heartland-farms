@@ -2,73 +2,85 @@ import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGetGalleryItems } from "@/hooks/useQueries";
 import { GalleryCategory, type GalleryItem } from "@/types";
-import { Images, X, ZoomIn } from "lucide-react";
+import { Images, Play, X, ZoomIn } from "lucide-react";
 import { useCallback, useState } from "react";
 
 // ─── Placeholder data ─────────────────────────────────────────────────────────
 
 const PLACEHOLDER_ITEMS: GalleryItem[] = [
+  // VIDEO ITEM FIRST — always visible at the top of the All filter
+  {
+    id: 16n,
+    category: GalleryCategory.installationProjects,
+    imageUrl: "/assets/videos/teja-controls-video.mp4",
+    videoUrl: "/assets/videos/teja-controls-video.mp4",
+    title: "Control Panel Tour",
+    projectType: "Video Tour",
+    isVideo: true,
+    description: "Walkthrough of our control panel manufacturing facility",
+  },
   {
     id: 1n,
-    category: GalleryCategory.vineyard,
-    imageUrl: "/assets/images/gallery-community-vineyard.png",
-    caption:
-      "Community harvest day — women gathering at the vineyard in Vijayapura",
+    category: GalleryCategory.riceMills,
+    imageUrl: "/assets/generated/gallery-rice-mill-panel.jpg",
+    title: "Rice Mill Automation Panel",
+    projectType: "PLC Panel",
   },
   {
     id: 2n,
-    category: GalleryCategory.farm,
-    imageUrl: "/assets/images/gallery-founder-tractor.png",
-    caption:
-      "Gurupad MS on his John Deere tractor — where corporate dreams meet farming reality",
+    category: GalleryCategory.flourMills,
+    imageUrl: "/assets/generated/gallery-flour-mill-mcc.jpg",
+    title: "Flour Mill MCC Panel",
+    projectType: "MCC Panel",
   },
   {
     id: 3n,
-    category: GalleryCategory.journey,
-    imageUrl: "/assets/images/gallery-harvest-collage.png",
-    caption: "From first grape clusters to harvest — the Heartland Farms story",
+    category: GalleryCategory.dalMills,
+    imageUrl: "/assets/generated/gallery-dal-mill-scada.jpg",
+    title: "Dal Mill SCADA Installation",
+    projectType: "SCADA System",
   },
   {
     id: 4n,
-    category: GalleryCategory.vineyard,
-    imageUrl: "/assets/images/gallery-new-vineyard.png",
-    caption:
-      "Newly planted vineyard with drip irrigation — sustainable farming in action",
+    category: GalleryCategory.electricalPanels,
+    imageUrl: "/assets/generated/gallery-vfd-panel.jpg",
+    title: "VFD Drive Panel Assembly",
+    projectType: "VFD Panel",
   },
   {
     id: 5n,
-    category: GalleryCategory.lifestyle,
-    imageUrl: "/assets/images/gallery-farm-puja.png",
-    caption:
-      "Farm puja ceremony — women in colorful sarees performing a traditional worship ritual at the farm shrine, celebrating the harvest season",
+    category: GalleryCategory.installationProjects,
+    imageUrl: "/assets/generated/gallery-installation.jpg",
+    title: "Site Commissioning — Food Plant",
+    projectType: "Installation",
   },
   {
     id: 6n,
-    category: GalleryCategory.vineyard,
-    imageUrl: "/assets/images/gallery-peacock-vineyard.png",
-    caption:
-      "A peacock perched on a vineyard post overlooking lush green grape rows and red soil paths at Heartland Farms",
+    category: GalleryCategory.electricalPanels,
+    imageUrl: "/assets/generated/gallery-apfc-panel.jpg",
+    title: "APFC Power Factor Panel",
+    projectType: "APFC Panel",
   },
   {
     id: 7n,
-    category: GalleryCategory.vineyard,
-    imageUrl: "/assets/images/gallery-boy-grapes.png",
-    caption:
-      "Joy of the harvest — a young boy smiling and holding a fresh bunch of green grapes in the vineyard",
+    category: GalleryCategory.riceMills,
+    imageUrl: "/assets/generated/gallery-rice-plc.jpg",
+    title: "Rice Mill PLC Programming",
+    projectType: "PLC Panel",
   },
   {
     id: 8n,
-    category: GalleryCategory.farm,
-    imageUrl: "/assets/images/gallery-grape-drying.png",
-    caption:
-      "Grape drying facility at scale — dense clusters of green and golden grapes laid out on massive overhead racks to dry into raisins",
+    category: GalleryCategory.installationProjects,
+    imageUrl: "/assets/generated/gallery-feed-mill.jpg",
+    title: "Feed Mill Control System",
+    projectType: "Installation",
   },
   {
     id: 9n,
-    category: GalleryCategory.farm,
-    imageUrl: "/assets/images/gallery-boy-tomato.png",
-    caption:
-      "Fresh from the farm — a young boy proudly holds a ripe tomato with coconut trees, granite pillars and drip irrigation in the background",
+    category: GalleryCategory.flourMills,
+    imageUrl: "/assets/generated/gallery-automation-panel.jpg",
+    title: "Flour Mill Automation Panel",
+    projectType: "Automation Panel",
   },
 ];
 
@@ -83,40 +95,49 @@ interface FilterTab {
 
 const FILTER_TABS: FilterTab[] = [
   { label: "All", value: "all" },
-  { label: "Farm", value: GalleryCategory.farm },
-  { label: "Vineyard", value: GalleryCategory.vineyard },
-  { label: "Lifestyle", value: GalleryCategory.lifestyle },
-  { label: "Journey", value: GalleryCategory.journey },
+  { label: "Rice Mills", value: GalleryCategory.riceMills },
+  { label: "Flour Mills", value: GalleryCategory.flourMills },
+  { label: "Dal Mills", value: GalleryCategory.dalMills },
+  { label: "Electrical Panels", value: GalleryCategory.electricalPanels },
+  { label: "Installation", value: GalleryCategory.installationProjects },
 ];
 
 const CATEGORY_META: Record<
   GalleryCategory,
   { label: string; gradient: string }
 > = {
-  [GalleryCategory.farm]: {
-    label: "Farm",
-    gradient: "from-secondary/70 via-secondary/50 to-accent/30",
-  },
-  [GalleryCategory.vineyard]: {
-    label: "Vineyard",
+  [GalleryCategory.riceMills]: {
+    label: "Rice Mills",
     gradient: "from-primary/70 via-primary/40 to-secondary/20",
   },
-  [GalleryCategory.lifestyle]: {
-    label: "Lifestyle",
-    gradient: "from-secondary/70 via-secondary/40 to-muted/20",
+  [GalleryCategory.flourMills]: {
+    label: "Flour Mills",
+    gradient: "from-secondary/70 via-secondary/50 to-accent/30",
   },
-  [GalleryCategory.journey]: {
-    label: "Journey",
+  [GalleryCategory.dalMills]: {
+    label: "Dal Mills",
+    gradient: "from-accent/70 via-accent/40 to-muted/20",
+  },
+  [GalleryCategory.electricalPanels]: {
+    label: "Electrical Panels",
     gradient: "from-foreground/70 via-foreground/40 to-muted/20",
+  },
+  [GalleryCategory.installationProjects]: {
+    label: "Installation",
+    gradient: "from-secondary/60 via-primary/30 to-muted/20",
   },
 };
 
 const CATEGORY_BADGE_CLASS: Record<GalleryCategory, string> = {
-  [GalleryCategory.farm]: "bg-secondary/20 text-secondary border-secondary/30",
-  [GalleryCategory.vineyard]: "bg-primary/15 text-primary border-primary/25",
-  [GalleryCategory.lifestyle]:
+  [GalleryCategory.riceMills]: "bg-primary/15 text-primary border-primary/25",
+  [GalleryCategory.flourMills]:
+    "bg-secondary/20 text-secondary border-secondary/30",
+  [GalleryCategory.dalMills]:
     "bg-accent/20 text-accent-foreground border-accent/30",
-  [GalleryCategory.journey]: "bg-muted text-muted-foreground border-border",
+  [GalleryCategory.electricalPanels]:
+    "bg-muted text-muted-foreground border-border",
+  [GalleryCategory.installationProjects]:
+    "bg-primary/10 text-primary/80 border-primary/20",
 };
 
 const SKELETON_KEYS = [
@@ -156,13 +177,68 @@ function GalleryCard({ item, index, onClick }: GalleryCardProps) {
   const badgeClass = CATEGORY_BADGE_CLASS[item.category];
   const hasImage = !!item.imageUrl;
 
+  if (item.isVideo) {
+    return (
+      <button
+        type="button"
+        data-ocid={`gallery.item.${index + 1}`}
+        onClick={() => onClick(item)}
+        className="group relative rounded-xl overflow-hidden bg-primary border-2 border-secondary
+                   ring-2 ring-secondary/30 shadow-lg hover:shadow-2xl hover:ring-secondary/60
+                   transition-all duration-300 focus-visible:outline-none
+                   focus-visible:ring-2 focus-visible:ring-ring text-left w-full col-span-1"
+      >
+        {/* Featured top banner */}
+        <div className="bg-secondary text-white text-xs font-body font-bold text-center py-2 tracking-widest uppercase flex items-center justify-center gap-1.5">
+          <Play size={12} className="fill-white" />
+          Featured Video Tour
+        </div>
+        {/* Video area */}
+        <div className="relative aspect-video overflow-hidden bg-primary">
+          <video
+            src={item.videoUrl}
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="w-full h-full object-cover opacity-50 transition-smooth group-hover:scale-105 group-hover:opacity-70"
+          />
+          {/* Large play button — always visible, centered */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
+            <div className="bg-secondary/90 group-hover:bg-secondary rounded-full p-7 shadow-2xl transition-all duration-300 group-hover:scale-110">
+              <Play size={52} className="text-white fill-white ml-2" />
+            </div>
+            <span className="bg-white/10 border border-white/20 backdrop-blur-sm text-white text-sm font-display font-semibold px-6 py-2 rounded-full tracking-wide">
+              Click to Watch
+            </span>
+          </div>
+          {/* WATCH badge top-right */}
+          <div className="absolute top-3 right-3">
+            <span className="bg-secondary text-white text-xs font-display font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1.5">
+              <Play size={10} className="fill-white" /> WATCH
+            </span>
+          </div>
+        </div>
+        {/* Video footer */}
+        <div className="px-4 py-3.5 bg-primary/95">
+          <p className="font-display font-bold text-white text-base leading-snug">
+            {item.title}
+          </p>
+          <p className="text-white/60 text-xs font-body mt-1">
+            {item.description ?? item.projectType}
+          </p>
+        </div>
+      </button>
+    );
+  }
+
   return (
     <button
       type="button"
       data-ocid={`gallery.item.${index + 1}`}
       onClick={() => onClick(item)}
-      className="group relative rounded-xl overflow-hidden bg-card border border-border shadow-sm
-                 hover:shadow-lg hover:-translate-y-0.5 transition-smooth focus-visible:outline-none
+      className="group relative rounded-lg overflow-hidden bg-white border border-gray-200 shadow-sm
+                 hover:shadow-lg transition-shadow focus-visible:outline-none
                  focus-visible:ring-2 focus-visible:ring-ring text-left w-full"
     >
       {/* Image / placeholder */}
@@ -170,7 +246,7 @@ function GalleryCard({ item, index, onClick }: GalleryCardProps) {
         {hasImage ? (
           <img
             src={item.imageUrl}
-            alt={item.caption}
+            alt={item.title}
             className="w-full h-full object-cover transition-smooth group-hover:scale-105"
           />
         ) : (
@@ -178,7 +254,6 @@ function GalleryCard({ item, index, onClick }: GalleryCardProps) {
             className={`w-full h-full bg-gradient-to-br ${meta.gradient} flex items-end justify-end p-3
                         transition-smooth group-hover:opacity-90`}
           >
-            {/* Subtle texture overlay */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_70%,_rgba(255,255,255,0.08)_0%,transparent_70%)]" />
           </div>
         )}
@@ -201,11 +276,9 @@ function GalleryCard({ item, index, onClick }: GalleryCardProps) {
         >
           {meta.label}
         </Badge>
-        {item.caption && (
-          <p className="text-sm font-body text-muted-foreground line-clamp-2 leading-relaxed">
-            {item.caption}
-          </p>
-        )}
+        <p className="text-sm font-body text-muted-foreground line-clamp-2 leading-relaxed">
+          {item.title}
+        </p>
       </div>
     </button>
   );
@@ -251,10 +324,19 @@ function Lightbox({ item, onClose }: LightboxProps) {
 
         {/* Image area */}
         <div className="relative flex-1 min-h-0 overflow-hidden">
-          {hasImage ? (
+          {item.isVideo ? (
+            <video
+              src={item.videoUrl}
+              controls
+              autoPlay
+              className="w-full h-full object-contain max-h-[65vh]"
+            >
+              <track kind="captions" src="" label="No captions available" />
+            </video>
+          ) : hasImage ? (
             <img
               src={item.imageUrl}
-              alt={item.caption}
+              alt={item.title}
               className="w-full h-full object-contain max-h-[65vh]"
             />
           ) : (
@@ -276,11 +358,9 @@ function Lightbox({ item, onClose }: LightboxProps) {
           >
             {meta.label}
           </Badge>
-          {item.caption && (
-            <p className="text-sm sm:text-base font-body text-foreground/80 leading-relaxed">
-              {item.caption}
-            </p>
-          )}
+          <p className="text-sm sm:text-base font-body text-foreground/80 leading-relaxed">
+            {item.title} — {item.projectType}
+          </p>
         </div>
       </div>
     </dialog>
@@ -296,8 +376,11 @@ export default function GalleryPage() {
   // Fetch all items from backend; fall back to placeholders
   const { data: allItems = [], isLoading } = useGetGalleryItems();
 
-  const items: GalleryItem[] =
-    allItems.length > 0 ? allItems : PLACEHOLDER_ITEMS;
+  // Sort so videos always appear first, then keep original order
+  const rawItems = allItems.length > 0 ? allItems : PLACEHOLDER_ITEMS;
+  const items: GalleryItem[] = [...rawItems].sort((a, b) =>
+    a.isVideo === b.isVideo ? 0 : a.isVideo ? -1 : 1,
+  );
 
   const filtered =
     activeFilter === "all"
@@ -406,7 +489,7 @@ export default function GalleryPage() {
               <span className="font-semibold text-foreground">
                 {filtered.length}
               </span>{" "}
-              {filtered.length === 1 ? "photo" : "photos"}
+              {filtered.length === 1 ? "item" : "items"}
               {activeFilter !== "all" && (
                 <>
                   {" "}

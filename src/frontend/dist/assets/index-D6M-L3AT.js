@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/Home-LqhwReEU.js","assets/badge-B1kUhnsd.js","assets/arrow-right-Dsnoy1i3.js","assets/sun-D2fwxOs7.js","assets/About-CQN09xmt.js","assets/proxy-BwF7As6b.js","assets/sprout-DMozvYIQ.js","assets/globe-B5NHEpKJ.js","assets/Practices-BuwexrOM.js","assets/book-open-oDj_8vSc.js","assets/droplets-vqSyv0aZ.js","assets/Products-BFXQgbuX.js","assets/card-Cw9yFsU6.js","assets/Gallery-8bV0J3lB.js","assets/useQueries-DWmkqVXT.js","assets/backend-CN5Y_TMj.js","assets/Blog-7yVlWZOp.js","assets/clock-CZvi4cxt.js","assets/BlogPost-cru02GY-.js","assets/Contact-HEI5IiuE.js"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/Home-BcqYP5cj.js","assets/badge-BfFuspmz.js","assets/useQueries-BmWb2bzh.js","assets/backend-D5qmZiZF.js","assets/types-Cqp2aef9.js","assets/proxy-DXsIDOOG.js","assets/clock-DsUzyxKD.js","assets/star-BBLFH73D.js","assets/globe-B90CH_oN.js","assets/Blog-C83QbAsB.js","assets/book-open-DGlTNiEL.js","assets/arrow-right-CG_9LE0i.js","assets/calendar-NOTLN0CZ.js","assets/BlogPost-DITlA10i.js","assets/card-BVeU_Je5.js","assets/Contact-BuOPtApz.js","assets/About-Dkc3E8Wz.js","assets/sprout-DSdQ6Ole.js","assets/Practices-CwGatWds.js","assets/droplets-a3hAlaNt.js","assets/Products-DKBOJNF_.js","assets/Gallery-B-PS_HRW.js"])))=>i.map(i=>d[i]);
 var __defProp = Object.defineProperty;
 var __typeError = (msg) => {
   throw TypeError(msg);
@@ -14574,7 +14574,7 @@ function mergeLoginOptions(loginOptions, otherLoginOptions) {
   };
 }
 const ONE_HOUR_IN_NANOSECONDS = BigInt(36e11);
-const DEFAULT_IDENTITY_PROVIDER = "https://id.ai";
+const DEFAULT_IDENTITY_PROVIDER = "https://id.ai/authorize";
 const InternetIdentityReactContext = reactExports.createContext(void 0);
 async function createAuthClient(createOptions) {
   const config = await loadConfig();
@@ -34603,17 +34603,59 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
+const __iconNode$9 = [
+  [
+    "path",
+    { d: "M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z", key: "1jg4f8" }
+  ]
+];
+const Facebook = createLucideIcon("facebook", __iconNode$9);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$8 = [
+  [
+    "path",
+    {
+      d: "M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z",
+      key: "c2jq9f"
+    }
+  ],
+  ["rect", { width: "4", height: "12", x: "2", y: "9", key: "mk3on5" }],
+  ["circle", { cx: "4", cy: "4", r: "2", key: "bt5ra8" }]
+];
+const Linkedin = createLucideIcon("linkedin", __iconNode$8);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$7 = [
+  ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
+  ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
+];
+const Mail = createLucideIcon("mail", __iconNode$7);
+/**
+ * @license lucide-react v0.511.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
 const __iconNode$6 = [
   [
     "path",
     {
-      d: "M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z",
-      key: "nnexq3"
+      d: "M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0",
+      key: "1r0f0z"
     }
   ],
-  ["path", { d: "M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12", key: "mt58a7" }]
+  ["circle", { cx: "12", cy: "10", r: "3", key: "ilqhr7" }]
 ];
-const Leaf = createLucideIcon("leaf", __iconNode$6);
+const MapPin = createLucideIcon("map-pin", __iconNode$6);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -34621,10 +34663,11 @@ const Leaf = createLucideIcon("leaf", __iconNode$6);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$5 = [
-  ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
-  ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
+  ["path", { d: "M4 12h16", key: "1lakjw" }],
+  ["path", { d: "M4 18h16", key: "19g7jn" }],
+  ["path", { d: "M4 6h16", key: "1o0s65" }]
 ];
-const Mail = createLucideIcon("mail", __iconNode$5);
+const Menu = createLucideIcon("menu", __iconNode$5);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -34635,13 +34678,12 @@ const __iconNode$4 = [
   [
     "path",
     {
-      d: "M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0",
-      key: "1r0f0z"
+      d: "M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384",
+      key: "9njp5v"
     }
-  ],
-  ["circle", { cx: "12", cy: "10", r: "3", key: "ilqhr7" }]
+  ]
 ];
-const MapPin = createLucideIcon("map-pin", __iconNode$4);
+const Phone = createLucideIcon("phone", __iconNode$4);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -34649,11 +34691,15 @@ const MapPin = createLucideIcon("map-pin", __iconNode$4);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$3 = [
-  ["path", { d: "M4 12h16", key: "1lakjw" }],
-  ["path", { d: "M4 18h16", key: "19g7jn" }],
-  ["path", { d: "M4 6h16", key: "1o0s65" }]
+  [
+    "path",
+    {
+      d: "M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z",
+      key: "pff0z6"
+    }
+  ]
 ];
-const Menu = createLucideIcon("menu", __iconNode$3);
+const Twitter = createLucideIcon("twitter", __iconNode$3);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -34661,15 +34707,10 @@ const Menu = createLucideIcon("menu", __iconNode$3);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$2 = [
-  [
-    "path",
-    {
-      d: "M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384",
-      key: "9njp5v"
-    }
-  ]
+  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
+  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ];
-const Phone = createLucideIcon("phone", __iconNode$2);
+const X = createLucideIcon("x", __iconNode$2);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -34677,10 +34718,16 @@ const Phone = createLucideIcon("phone", __iconNode$2);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$1 = [
-  ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
-  ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
+  [
+    "path",
+    {
+      d: "M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17",
+      key: "1q2vi4"
+    }
+  ],
+  ["path", { d: "m10 15 5-3-5-3z", key: "1jp15x" }]
 ];
-const X = createLucideIcon("x", __iconNode$1);
+const Youtube = createLucideIcon("youtube", __iconNode$1);
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -34691,122 +34738,171 @@ const __iconNode = [
   [
     "path",
     {
-      d: "M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17",
-      key: "1q2vi4"
+      d: "M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z",
+      key: "1xq2db"
     }
-  ],
-  ["path", { d: "m10 15 5-3-5-3z", key: "1jp15x" }]
+  ]
 ];
-const Youtube = createLucideIcon("youtube", __iconNode);
+const Zap = createLucideIcon("zap", __iconNode);
 const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Our Practices", href: "/practices" },
-  { label: "Products", href: "/products" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Home", href: "/" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" }
 ];
+const serviceLinks = [
+  "Control Panel Design",
+  "PLC Programming",
+  "SCADA Development",
+  "HMI Development",
+  "Electrical Installation",
+  "Site Commissioning"
+];
+const industryLinks = [
+  "Rice Mills",
+  "Flour Mills",
+  "Dal Mills",
+  "Feed Mills",
+  "Food Processing",
+  "Packaging Industries"
+];
+const socialLinks = [
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "#",
+    ocid: "footer.linkedin_link"
+  },
+  {
+    icon: Facebook,
+    label: "Facebook",
+    href: "#",
+    ocid: "footer.facebook_link"
+  },
+  { icon: Twitter, label: "Twitter", href: "#", ocid: "footer.twitter_link" },
+  { icon: Youtube, label: "YouTube", href: "#", ocid: "footer.youtube_link" }
+];
 function Footer() {
   const year = (/* @__PURE__ */ new Date()).getFullYear();
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "bg-primary text-primary-foreground", "data-ocid": "footer", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "bg-primary text-white", "data-ocid": "footer", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-2", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3 mb-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-9 h-9 rounded-full bg-primary-foreground/15 border border-primary-foreground/30 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Leaf, { className: "w-4 h-4 text-primary-foreground" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display font-bold text-lg text-primary-foreground leading-tight", children: "Heartland Farms" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-primary-foreground/60 tracking-widest uppercase", children: "Vijayapura, Karnataka" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2.5 mb-5", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-9 h-9 rounded bg-accent flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-5 h-5 text-white" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col leading-none", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-white text-sm tracking-tight", children: "TEJA" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-accent text-sm tracking-widest -mt-0.5", children: "CONTROLS" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display italic text-primary-foreground/80 text-base mb-5", children: '"Where Nature Meets Innovation"' }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-primary-foreground/65 font-body leading-relaxed max-w-xs", children: "From a Siemens engineer to a passionate farmer — we cultivate premium produce with integrated, sustainable practices rooted in the rich soils of Vijayapura." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-3 mt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white/65 font-body leading-relaxed mb-5", children: "Leading provider of Electrical Control Panel Design, Manufacturing, PLC Programming and SCADA solutions for Food Processing Industries across India." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex gap-3", children: socialLinks.map(({ icon: Icon2, label, href, ocid }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           "a",
           {
-            href: "https://youtu.be/772WVHHehm4",
+            href,
             target: "_blank",
             rel: "noopener noreferrer",
-            "aria-label": "Heartland Farms on YouTube",
-            "data-ocid": "footer.youtube_link",
-            className: "w-9 h-9 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors duration-200",
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Youtube, { className: "w-4 h-4" })
-          }
-        ) })
+            "aria-label": `Teja Controls on ${label}`,
+            "data-ocid": ocid,
+            className: "w-9 h-9 rounded bg-white/10 border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent transition-colors duration-200",
+            children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { className: "w-4 h-4" })
+          },
+          label
+        )) })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-4", children: "Quick Links" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2.5", children: quickLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Link,
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-bold text-xs uppercase tracking-widest text-accent mb-4", children: "Quick Links" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "space-y-2.5", children: [
+          quickLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: link.href,
+              "data-ocid": `footer.nav_link.${link.label.toLowerCase().replace(/\s+/g, "_")}`,
+              className: "text-sm font-body text-white/70 hover:text-accent transition-colors duration-200",
+              children: link.label
+            }
+          ) }, link.href)),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-display font-bold text-accent uppercase tracking-widest mt-4 block", children: "Services" }) }),
+          serviceLinks.map((s2) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: "/#services",
+              "data-ocid": `footer.service_link.${s2.toLowerCase().replace(/\s+/g, "_")}`,
+              className: "text-sm font-body text-white/70 hover:text-accent transition-colors duration-200",
+              children: s2
+            }
+          ) }, s2))
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-bold text-xs uppercase tracking-widest text-accent mb-4", children: "Industries" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2.5", children: industryLinks.map((ind) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "a",
           {
-            to: link.href,
-            "data-ocid": `footer.nav_link.${link.label.toLowerCase().replace(/\s+/g, "_")}`,
-            className: "text-sm font-body text-primary-foreground/75 hover:text-primary-foreground transition-colors duration-200",
-            children: link.label
+            href: "/#industries",
+            "data-ocid": `footer.industry_link.${ind.toLowerCase().replace(/\s+/g, "_")}`,
+            className: "text-sm font-body text-white/70 hover:text-accent transition-colors duration-200",
+            children: ind
           }
-        ) }, link.href)) })
+        ) }, ind)) })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-4", children: "Get in Touch" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "space-y-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2.5", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "w-4 h-4 mt-0.5 text-secondary shrink-0" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "a",
-              {
-                href: "tel:+919980055940",
-                "data-ocid": "footer.phone_link",
-                className: "text-sm font-body text-primary-foreground/75 hover:text-primary-foreground transition-colors duration-200",
-                children: "+91 99800 55940"
-              }
-            )
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-display font-bold text-xs uppercase tracking-widest text-accent mb-4", children: "Contact" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "space-y-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Phone, { className: "w-4 h-4 mt-0.5 text-accent shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-white/50 font-body mb-0.5", children: "Phone" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "a",
+                {
+                  href: "tel:+919902003486",
+                  "data-ocid": "footer.phone_link",
+                  className: "text-sm font-body text-white/80 hover:text-accent transition-colors duration-200",
+                  children: "+91 9902003486"
+                }
+              )
+            ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2.5", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { className: "w-4 h-4 mt-0.5 text-secondary shrink-0" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm font-body text-primary-foreground/75", children: "Vijayapura, North Karnataka, India" })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "w-4 h-4 mt-0.5 text-accent shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-white/50 font-body mb-0.5", children: "Email" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "a",
+                {
+                  href: "mailto:Revana@tajascontrols.com",
+                  "data-ocid": "footer.email_link",
+                  className: "text-sm font-body text-white/80 hover:text-accent transition-colors duration-200",
+                  children: "Revana@tajascontrols.com"
+                }
+              )
+            ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2.5", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "w-4 h-4 mt-0.5 text-secondary shrink-0" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "a",
-              {
-                href: "/contact",
-                "data-ocid": "footer.contact_link",
-                className: "text-sm font-body text-primary-foreground/75 hover:text-primary-foreground transition-colors duration-200",
-                children: "Send a Message"
-              }
-            )
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(MapPin, { className: "w-4 h-4 mt-0.5 text-accent shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-white/50 font-body mb-0.5", children: "Location" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-sm font-body text-white/80 leading-snug", children: [
+                "#5, Subramanya Swamy Temple Road,",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "Lakshmipura Post, Dasanapura Hobli,",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "Kachohalli Industrial Area Road,",
+                /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+                "Bengaluru North – 560091"
+              ] })
+            ] })
           ] })
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, { className: "bg-primary-foreground/10" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Separator, { className: "bg-white/10" }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-primary-foreground/50 font-body", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-white/50 font-body", children: [
         "© ",
         year,
-        " Heartland Farms. All rights reserved."
+        " Teja Controls. All rights reserved."
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xs text-primary-foreground/40 font-body flex flex-wrap items-center gap-x-2 gap-y-1 justify-center sm:justify-end", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Website designed by Basics Automation" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden sm:inline opacity-50", children: "|" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "a",
-          {
-            href: "mailto:basics.automation@gmail.com",
-            className: "underline underline-offset-2 hover:text-primary-foreground/60 transition-colors",
-            children: "basics.automation@gmail.com"
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "hidden sm:inline opacity-50", children: "|" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "a",
-          {
-            href: "tel:+918050371081",
-            className: "underline underline-offset-2 hover:text-primary-foreground/60 transition-colors",
-            children: "+91 80503 71081"
-          }
-        )
-      ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-white/30 font-body", children: "Engineering Reliable Automation" })
     ] })
   ] });
 }
@@ -34893,11 +34989,10 @@ function Button({
   );
 }
 const navLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Practices", href: "/practices" },
-  { label: "Products", href: "/products" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Services", href: "/#services" },
+  { label: "Industries", href: "/#industries" },
+  { label: "Products", href: "/#products" },
+  { label: "Projects", href: "/#gallery" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" }
 ];
@@ -34910,13 +35005,26 @@ function Header() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
   const closeMenu = () => setMenuOpen(false);
+  const handleAnchorClick = (e, href) => {
+    if (href.startsWith("/#")) {
+      const id = href.replace("/#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        e.preventDefault();
+        closeMenu();
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      closeMenu();
+    }
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "header",
     {
       "data-ocid": "header",
       className: cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled ? "bg-card/95 backdrop-blur-md shadow-subtle border-b border-border" : "bg-card/80 backdrop-blur-sm"
+        scrolled ? "bg-primary/98 backdrop-blur-md shadow-industrial border-b border-white/10" : "bg-primary"
       ),
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between", children: [
@@ -34928,10 +35036,10 @@ function Header() {
               "data-ocid": "header.logo_link",
               className: "flex items-center gap-2.5 group",
               children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-subtle", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Leaf, { className: "w-4 h-4 text-primary-foreground" }) }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col leading-tight", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-foreground text-base tracking-tight group-hover:text-primary transition-colors duration-200", children: "Heartland Farms" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[10px] text-muted-foreground tracking-widest uppercase font-body", children: "Vijayapura, Karnataka" })
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-9 h-9 rounded bg-accent flex items-center justify-center shadow-industrial", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "w-5 h-5 text-white" }) }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col leading-none", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-white text-base tracking-tight group-hover:text-accent transition-colors duration-200", children: "TEJA" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-display font-bold text-accent text-base tracking-widest -mt-1", children: "CONTROLS" })
                 ] })
               ]
             }
@@ -34939,29 +35047,39 @@ function Header() {
           /* @__PURE__ */ jsxRuntimeExports.jsxs(
             "nav",
             {
-              className: "hidden md:flex items-center gap-1",
+              className: "hidden lg:flex items-center gap-1",
               "data-ocid": "header.nav",
               children: [
-                navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  Link,
-                  {
-                    to: link.href,
-                    "data-ocid": `header.nav_link.${link.label.toLowerCase()}`,
-                    className: "px-3 py-2 text-sm font-body font-medium text-foreground/75 hover:text-primary transition-colors duration-200 rounded-md hover:bg-primary/5",
-                    activeProps: {
-                      className: "text-primary bg-primary/8 font-semibold"
+                navLinks.map(
+                  (link) => link.href.startsWith("/#") ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "a",
+                    {
+                      href: link.href,
+                      onClick: (e) => handleAnchorClick(e, link.href),
+                      "data-ocid": `header.nav_link.${link.label.toLowerCase()}`,
+                      className: "px-3 py-2 text-sm font-body font-medium text-white/80 hover:text-accent transition-colors duration-200 rounded cursor-pointer",
+                      children: link.label
                     },
-                    children: link.label
-                  },
-                  link.href
-                )),
+                    link.href
+                  ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Link,
+                    {
+                      to: link.href,
+                      "data-ocid": `header.nav_link.${link.label.toLowerCase()}`,
+                      className: "px-3 py-2 text-sm font-body font-medium text-white/80 hover:text-accent transition-colors duration-200 rounded",
+                      activeProps: { className: "text-accent font-semibold" },
+                      children: link.label
+                    },
+                    link.href
+                  )
+                ),
                 /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/contact", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                   Button,
                   {
                     size: "sm",
-                    className: "ml-2 font-body",
+                    className: "ml-3 bg-accent hover:bg-accent/90 text-white font-display font-bold tracking-wide border-0",
                     "data-ocid": "header.cta_button",
-                    children: "Connect With Us"
+                    children: "Get Quote"
                   }
                 ) })
               ]
@@ -34971,7 +35089,7 @@ function Header() {
             "button",
             {
               type: "button",
-              className: "md:hidden p-2 rounded-md text-foreground hover:bg-muted transition-colors duration-200",
+              className: "lg:hidden p-2 rounded text-white hover:bg-white/10 transition-colors duration-200",
               onClick: () => setMenuOpen(!menuOpen),
               "aria-label": menuOpen ? "Close menu" : "Open menu",
               "data-ocid": "header.mobile_menu_toggle",
@@ -34982,33 +35100,45 @@ function Header() {
         menuOpen && /* @__PURE__ */ jsxRuntimeExports.jsxs(
           "div",
           {
-            className: "md:hidden fixed inset-0 top-16 bg-background/98 backdrop-blur-sm z-40 flex flex-col",
+            className: "lg:hidden fixed inset-0 top-16 bg-primary z-40 flex flex-col",
             "data-ocid": "header.mobile_menu",
             children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "flex flex-col gap-1 p-6 pt-8", children: [
-                navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  Link,
-                  {
-                    to: link.href,
-                    onClick: closeMenu,
-                    "data-ocid": `header.mobile_nav_link.${link.label.toLowerCase()}`,
-                    className: "px-4 py-4 text-lg font-body font-medium text-foreground border-b border-border/50 hover:text-primary transition-colors duration-200",
-                    activeProps: { className: "text-primary font-semibold" },
-                    children: link.label
-                  },
-                  link.href
-                )),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("nav", { className: "flex flex-col p-6 pt-4", children: [
+                navLinks.map(
+                  (link) => link.href.startsWith("/#") ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    "a",
+                    {
+                      href: link.href,
+                      onClick: (e) => handleAnchorClick(e, link.href),
+                      "data-ocid": `header.mobile_nav_link.${link.label.toLowerCase()}`,
+                      className: "px-4 py-4 text-lg font-body font-medium text-white border-b border-white/10 hover:text-accent transition-colors duration-200 cursor-pointer",
+                      children: link.label
+                    },
+                    link.href
+                  ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+                    Link,
+                    {
+                      to: link.href,
+                      onClick: closeMenu,
+                      "data-ocid": `header.mobile_nav_link.${link.label.toLowerCase()}`,
+                      className: "px-4 py-4 text-lg font-body font-medium text-white border-b border-white/10 hover:text-accent transition-colors duration-200",
+                      activeProps: { className: "text-accent font-semibold" },
+                      children: link.label
+                    },
+                    link.href
+                  )
+                ),
                 /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/contact", onClick: closeMenu, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
                   Button,
                   {
-                    className: "mt-6 w-full font-body",
+                    className: "mt-6 w-full bg-accent hover:bg-accent/90 text-white font-display font-bold tracking-wide",
                     size: "lg",
                     "data-ocid": "header.mobile_cta_button",
-                    children: "Connect With Us"
+                    children: "Get Quote"
                   }
                 ) })
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-auto p-6 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground font-body italic", children: '"Where Nature Meets Innovation"' }) })
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-auto p-6 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-white/40 font-body", children: "Engineering Reliable Automation Since 2009" }) })
             ]
           }
         )
@@ -35021,7 +35151,31 @@ function Layout({ children }) {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
     /* @__PURE__ */ jsxRuntimeExports.jsx("main", { className: "flex-1 pt-16", children }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, { position: "top-right", richColors: true })
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Toaster, { position: "top-right", richColors: true }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "a",
+      {
+        href: "https://wa.me/919902003486?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20automation%20solutions.",
+        target: "_blank",
+        rel: "noopener noreferrer",
+        "aria-label": "Chat on WhatsApp",
+        "data-ocid": "whatsapp_float_button",
+        className: "fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] shadow-industrial flex items-center justify-center hover:scale-110 transition-transform duration-200",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "sr-only", children: "Chat on WhatsApp" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "svg",
+            {
+              viewBox: "0 0 24 24",
+              fill: "white",
+              className: "w-7 h-7",
+              "aria-hidden": "true",
+              children: /* @__PURE__ */ jsxRuntimeExports.jsx("path", { d: "M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" })
+            }
+          )
+        ]
+      }
+    )
   ] });
 }
 function Skeleton({ className, ...props }) {
@@ -35034,14 +35188,14 @@ function Skeleton({ className, ...props }) {
     }
   );
 }
-const HomePage = reactExports.lazy(() => __vitePreload(() => import("./Home-LqhwReEU.js"), true ? __vite__mapDeps([0,1,2,3]) : void 0));
-const AboutPage = reactExports.lazy(() => __vitePreload(() => import("./About-CQN09xmt.js"), true ? __vite__mapDeps([4,1,5,6,7]) : void 0));
-const PracticesPage = reactExports.lazy(() => __vitePreload(() => import("./Practices-BuwexrOM.js"), true ? __vite__mapDeps([8,1,5,9,7,10,3,6,2]) : void 0));
-const ProductsPage = reactExports.lazy(() => __vitePreload(() => import("./Products-BFXQgbuX.js"), true ? __vite__mapDeps([11,1,12,5,2,6,10]) : void 0));
-const GalleryPage = reactExports.lazy(() => __vitePreload(() => import("./Gallery-8bV0J3lB.js"), true ? __vite__mapDeps([13,1,14,15]) : void 0));
-const BlogPage = reactExports.lazy(() => __vitePreload(() => import("./Blog-7yVlWZOp.js"), true ? __vite__mapDeps([16,1,14,15,9,2,17]) : void 0));
-const BlogPostPage = reactExports.lazy(() => __vitePreload(() => import("./BlogPost-cru02GY-.js"), true ? __vite__mapDeps([18,1,14,15,17,6]) : void 0));
-const ContactPage = reactExports.lazy(() => __vitePreload(() => import("./Contact-HEI5IiuE.js"), true ? __vite__mapDeps([19,15,12,5]) : void 0));
+const HomePage = reactExports.lazy(() => __vitePreload(() => import("./Home-BcqYP5cj.js"), true ? __vite__mapDeps([0,1,2,3,4,5,6,7,8]) : void 0));
+const BlogPage = reactExports.lazy(() => __vitePreload(() => import("./Blog-C83QbAsB.js"), true ? __vite__mapDeps([9,1,2,3,10,5,11,12,6]) : void 0));
+const BlogPostPage = reactExports.lazy(() => __vitePreload(() => import("./BlogPost-DITlA10i.js"), true ? __vite__mapDeps([13,1,14,2,3,12,6,11]) : void 0));
+const ContactPage = reactExports.lazy(() => __vitePreload(() => import("./Contact-BuOPtApz.js"), true ? __vite__mapDeps([15,3,14,5]) : void 0));
+const AboutPage = reactExports.lazy(() => __vitePreload(() => import("./About-Dkc3E8Wz.js"), true ? __vite__mapDeps([16,1,5,17,8]) : void 0));
+const PracticesPage = reactExports.lazy(() => __vitePreload(() => import("./Practices-CwGatWds.js"), true ? __vite__mapDeps([18,1,5,10,8,17,19,7,11]) : void 0));
+const ProductsPage = reactExports.lazy(() => __vitePreload(() => import("./Products-DKBOJNF_.js"), true ? __vite__mapDeps([20,1,14,5,11,17,19]) : void 0));
+const GalleryPage = reactExports.lazy(() => __vitePreload(() => import("./Gallery-B-PS_HRW.js"), true ? __vite__mapDeps([21,1,2,3,4]) : void 0));
 function PageLoader() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-[60vh] flex flex-col gap-4 items-center justify-center px-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Skeleton, { className: "h-8 w-64" }),
@@ -35055,6 +35209,21 @@ const homeRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
   component: HomePage
+});
+const blogRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/blog",
+  component: BlogPage
+});
+const blogPostRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/blog/$slug",
+  component: BlogPostPage
+});
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/contact",
+  component: ContactPage
 });
 const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
@@ -35076,30 +35245,15 @@ const galleryRoute = createRoute({
   path: "/gallery",
   component: GalleryPage
 });
-const blogRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/blog",
-  component: BlogPage
-});
-const blogPostRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/blog/$slug",
-  component: BlogPostPage
-});
-const contactRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/contact",
-  component: ContactPage
-});
 const routeTree = rootRoute.addChildren([
   homeRoute,
+  blogRoute,
+  blogPostRoute,
+  contactRoute,
   aboutRoute,
   practicesRoute,
   productsRoute,
-  galleryRoute,
-  blogRoute,
-  blogPostRoute,
-  contactRoute
+  galleryRoute
 ]);
 const router = createRouter({ routeTree });
 function App() {
@@ -35121,81 +35275,81 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsxRuntimeExports.jsx(InternetIdentityProvider, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) }) })
 );
 export {
-  UnexpectedErrorCode as $,
-  CertifiedRejectErrorCode as A,
+  resolveEnabled as $,
+  ReadRequestType as A,
   Button as B,
   Certificate as C,
-  UNREACHABLE_ERROR as D,
+  Principal$1 as D,
   ExternalError as E,
-  InvalidReadStateRequestErrorCode as F,
-  ReadRequestType as G,
-  Principal$1 as H,
+  IDL as F,
+  MissingCanisterIdErrorCode as G,
+  HttpAgent as H,
   InputError as I,
-  IDL as J,
-  MissingCanisterIdErrorCode as K,
+  encode$2 as J,
+  UncertifiedRejectErrorCode as K,
   Link as L,
   MapPin as M,
-  HttpAgent as N,
-  encode$2 as O,
+  isV3ResponseBody as N,
+  isV2ResponseBody as O,
   Primitive as P,
   QueryResponseStatus as Q,
   React$4 as R,
   Skeleton as S,
   TimeoutWaitingForResponseErrorCode as T,
   UnknownError as U,
-  UncertifiedRejectErrorCode as V,
-  isV3ResponseBody as W,
+  UncertifiedRejectUpdateErrorCode as V,
+  UnexpectedErrorCode as W,
   X,
-  Youtube as Y,
-  isV2ResponseBody as Z,
-  UncertifiedRejectUpdateErrorCode as _,
-  Leaf as a,
-  decode$2 as a0,
-  pendingThenable as a1,
-  resolveEnabled as a2,
-  resolveStaleTime as a3,
-  environmentManager as a4,
-  isValidTimeout as a5,
-  timeUntilStale as a6,
-  timeoutManager as a7,
-  focusManager as a8,
-  fetchState as a9,
-  replaceData as aa,
-  useInternetIdentity as ab,
-  createActorWithConfig as ac,
-  Record as ad,
-  Variant as ae,
-  Service as af,
-  Func as ag,
-  Text as ah,
-  Opt as ai,
-  Vec as aj,
-  Null as ak,
-  Int as al,
-  Nat as am,
-  Slot as b,
+  decode$2 as Y,
+  Zap as Z,
+  pendingThenable as _,
+  Subscribable as a,
+  resolveStaleTime as a0,
+  environmentManager as a1,
+  isValidTimeout as a2,
+  timeUntilStale as a3,
+  timeoutManager as a4,
+  focusManager as a5,
+  fetchState as a6,
+  replaceData as a7,
+  useInternetIdentity as a8,
+  createActorWithConfig as a9,
+  Record as aa,
+  Variant as ab,
+  Opt as ac,
+  Service as ad,
+  Func as ae,
+  Vec as af,
+  Text as ag,
+  Null as ah,
+  Int as ai,
+  Nat as aj,
+  Bool as ak,
+  Slot as al,
+  cva as am,
+  useQueryClient as b,
   createLucideIcon as c,
-  cn as d,
-  cva as e,
-  Subscribable as f,
+  noop$6 as d,
+  shouldThrowError as e,
+  cn as f,
   getDefaultState as g,
   hashKey as h,
-  useQueryClient as i,
+  Phone as i,
   jsxRuntimeExports as j,
-  noop$6 as k,
-  shouldThrowError as l,
-  Phone as m,
+  Mail as k,
+  ue as l,
+  ProtocolError as m,
   notifyManager as n,
-  Mail as o,
-  ue as p,
-  ProtocolError as q,
+  utf8ToBytes as o,
+  MissingRootKeyErrorCode as p,
+  lookupResultToBuffer as q,
   reactExports as r,
   shallowEqualObjects as s,
-  utf8ToBytes as t,
+  RequestStatusResponseStatus as t,
   useParams as u,
-  MissingRootKeyErrorCode as v,
-  lookupResultToBuffer as w,
-  RequestStatusResponseStatus as x,
-  RequestStatusDoneNoReplyErrorCode as y,
-  RejectError as z
+  RequestStatusDoneNoReplyErrorCode as v,
+  RejectError as w,
+  CertifiedRejectErrorCode as x,
+  UNREACHABLE_ERROR as y,
+  InvalidReadStateRequestErrorCode as z
 };

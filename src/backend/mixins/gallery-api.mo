@@ -12,4 +12,8 @@ mixin (
   public query func getGalleryItemsByCategory(category : Types.GalleryCategory) : async [Types.GalleryItem] {
     GalleryLib.getByCategory(galleryItems, category);
   };
+
+  public query func getGalleryCategories() : async [Text] {
+    ["rice-mills", "flour-mills", "dal-mills", "electrical-panels", "installation-projects"];
+  };
 };

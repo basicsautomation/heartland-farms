@@ -14,25 +14,33 @@ export interface BlogPost {
     date: bigint;
     slug: string;
     author: string;
+    readTime: string;
     excerpt: string;
+    category: string;
 }
 export interface GalleryItem {
     id: bigint;
+    title: string;
+    projectType: string;
     imageUrl: string;
-    caption: string;
     category: GalleryCategory;
+    isVideo?: boolean;
+    videoUrl?: string;
 }
 export enum GalleryCategory {
-    journey = "journey",
-    farm = "farm",
-    vineyard = "vineyard",
-    lifestyle = "lifestyle"
+    electricalPanels = "electricalPanels",
+    installationProjects = "installationProjects",
+    riceMills = "riceMills",
+    flourMills = "flourMills",
+    dalMills = "dalMills"
 }
 export interface backendInterface {
     getBlogPost(slug: string): Promise<BlogPost | null>;
     getBlogPosts(): Promise<Array<BlogPost>>;
+    getBlogPostsByCategory(category: string): Promise<Array<BlogPost>>;
     getContactSubmissionCount(): Promise<bigint>;
+    getGalleryCategories(): Promise<Array<string>>;
     getGalleryItems(): Promise<Array<GalleryItem>>;
     getGalleryItemsByCategory(category: GalleryCategory): Promise<Array<GalleryItem>>;
-    submitContact(name: string, email: string, message: string, phone: string | null): Promise<bigint>;
+    submitContact(name: string, company: string, phone: string, email: string, industry: string, message: string): Promise<bigint>;
 }

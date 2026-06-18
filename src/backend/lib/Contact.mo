@@ -7,16 +7,20 @@ module {
     submissions : List.List<Types.ContactSubmission>,
     nextId : Nat,
     name : Text,
+    company : Text,
+    phone : Text,
     email : Text,
+    industry : Text,
     message : Text,
-    phone : ?Text,
   ) : (Nat, Types.ContactSubmission) {
     let submission : Types.ContactSubmission = {
       id = nextId;
       name;
-      email;
-      message;
+      company;
       phone;
+      email;
+      industry;
+      message;
       timestamp = Time.now();
     };
     submissions.add(submission);

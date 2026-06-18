@@ -1,20 +1,8 @@
-import { c as createLucideIcon, r as reactExports, j as jsxRuntimeExports, S as Skeleton, X } from "./index-B_yqDsmv.js";
-import { B as Badge } from "./badge-B1kUhnsd.js";
-import { u as useGetGalleryItems } from "./useQueries-DWmkqVXT.js";
-import "./backend-CN5Y_TMj.js";
-/**
- * @license lucide-react v0.511.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$1 = [
-  ["path", { d: "M18 22H4a2 2 0 0 1-2-2V6", key: "pblm9e" }],
-  ["path", { d: "m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18", key: "nf6bnh" }],
-  ["circle", { cx: "12", cy: "8", r: "2", key: "1822b1" }],
-  ["rect", { width: "16", height: "16", x: "6", y: "2", rx: "2", key: "12espp" }]
-];
-const Images = createLucideIcon("images", __iconNode$1);
+import { c as createLucideIcon, r as reactExports, j as jsxRuntimeExports, S as Skeleton, X } from "./index-D6M-L3AT.js";
+import { B as Badge } from "./badge-BfFuspmz.js";
+import { u as useGetGalleryItems } from "./useQueries-BmWb2bzh.js";
+import { G as GalleryCategory, P as Play, Z as ZoomIn } from "./types-Cqp2aef9.js";
+import "./backend-D5qmZiZF.js";
 /**
  * @license lucide-react v0.511.0 - ISC
  *
@@ -22,105 +10,124 @@ const Images = createLucideIcon("images", __iconNode$1);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode = [
-  ["circle", { cx: "11", cy: "11", r: "8", key: "4ej97u" }],
-  ["line", { x1: "21", x2: "16.65", y1: "21", y2: "16.65", key: "13gj7c" }],
-  ["line", { x1: "11", x2: "11", y1: "8", y2: "14", key: "1vmskp" }],
-  ["line", { x1: "8", x2: "14", y1: "11", y2: "11", key: "durymu" }]
+  ["path", { d: "M18 22H4a2 2 0 0 1-2-2V6", key: "pblm9e" }],
+  ["path", { d: "m22 13-1.296-1.296a2.41 2.41 0 0 0-3.408 0L11 18", key: "nf6bnh" }],
+  ["circle", { cx: "12", cy: "8", r: "2", key: "1822b1" }],
+  ["rect", { width: "16", height: "16", x: "6", y: "2", rx: "2", key: "12espp" }]
 ];
-const ZoomIn = createLucideIcon("zoom-in", __iconNode);
-var GalleryCategory = /* @__PURE__ */ ((GalleryCategory2) => {
-  GalleryCategory2["journey"] = "journey";
-  GalleryCategory2["farm"] = "farm";
-  GalleryCategory2["vineyard"] = "vineyard";
-  GalleryCategory2["lifestyle"] = "lifestyle";
-  return GalleryCategory2;
-})(GalleryCategory || {});
+const Images = createLucideIcon("images", __iconNode);
 const PLACEHOLDER_ITEMS = [
+  // VIDEO ITEM FIRST — always visible at the top of the All filter
+  {
+    id: 16n,
+    category: GalleryCategory.installationProjects,
+    imageUrl: "/assets/videos/teja-controls-video.mp4",
+    videoUrl: "/assets/videos/teja-controls-video.mp4",
+    title: "Control Panel Tour",
+    projectType: "Video Tour",
+    isVideo: true,
+    description: "Walkthrough of our control panel manufacturing facility"
+  },
   {
     id: 1n,
-    category: GalleryCategory.vineyard,
-    imageUrl: "/assets/images/gallery-community-vineyard.png",
-    caption: "Community harvest day — women gathering at the vineyard in Vijayapura"
+    category: GalleryCategory.riceMills,
+    imageUrl: "/assets/generated/gallery-rice-mill-panel.jpg",
+    title: "Rice Mill Automation Panel",
+    projectType: "PLC Panel"
   },
   {
     id: 2n,
-    category: GalleryCategory.farm,
-    imageUrl: "/assets/images/gallery-founder-tractor.png",
-    caption: "Gurupad MS on his John Deere tractor — where corporate dreams meet farming reality"
+    category: GalleryCategory.flourMills,
+    imageUrl: "/assets/generated/gallery-flour-mill-mcc.jpg",
+    title: "Flour Mill MCC Panel",
+    projectType: "MCC Panel"
   },
   {
     id: 3n,
-    category: GalleryCategory.journey,
-    imageUrl: "/assets/images/gallery-harvest-collage.png",
-    caption: "From first grape clusters to harvest — the Heartland Farms story"
+    category: GalleryCategory.dalMills,
+    imageUrl: "/assets/generated/gallery-dal-mill-scada.jpg",
+    title: "Dal Mill SCADA Installation",
+    projectType: "SCADA System"
   },
   {
     id: 4n,
-    category: GalleryCategory.vineyard,
-    imageUrl: "/assets/images/gallery-new-vineyard.png",
-    caption: "Newly planted vineyard with drip irrigation — sustainable farming in action"
+    category: GalleryCategory.electricalPanels,
+    imageUrl: "/assets/generated/gallery-vfd-panel.jpg",
+    title: "VFD Drive Panel Assembly",
+    projectType: "VFD Panel"
   },
   {
     id: 5n,
-    category: GalleryCategory.lifestyle,
-    imageUrl: "/assets/images/gallery-farm-puja.png",
-    caption: "Farm puja ceremony — women in colorful sarees performing a traditional worship ritual at the farm shrine, celebrating the harvest season"
+    category: GalleryCategory.installationProjects,
+    imageUrl: "/assets/generated/gallery-installation.jpg",
+    title: "Site Commissioning — Food Plant",
+    projectType: "Installation"
   },
   {
     id: 6n,
-    category: GalleryCategory.vineyard,
-    imageUrl: "/assets/images/gallery-peacock-vineyard.png",
-    caption: "A peacock perched on a vineyard post overlooking lush green grape rows and red soil paths at Heartland Farms"
+    category: GalleryCategory.electricalPanels,
+    imageUrl: "/assets/generated/gallery-apfc-panel.jpg",
+    title: "APFC Power Factor Panel",
+    projectType: "APFC Panel"
   },
   {
     id: 7n,
-    category: GalleryCategory.vineyard,
-    imageUrl: "/assets/images/gallery-boy-grapes.png",
-    caption: "Joy of the harvest — a young boy smiling and holding a fresh bunch of green grapes in the vineyard"
+    category: GalleryCategory.riceMills,
+    imageUrl: "/assets/generated/gallery-rice-plc.jpg",
+    title: "Rice Mill PLC Programming",
+    projectType: "PLC Panel"
   },
   {
     id: 8n,
-    category: GalleryCategory.farm,
-    imageUrl: "/assets/images/gallery-grape-drying.png",
-    caption: "Grape drying facility at scale — dense clusters of green and golden grapes laid out on massive overhead racks to dry into raisins"
+    category: GalleryCategory.installationProjects,
+    imageUrl: "/assets/generated/gallery-feed-mill.jpg",
+    title: "Feed Mill Control System",
+    projectType: "Installation"
   },
   {
     id: 9n,
-    category: GalleryCategory.farm,
-    imageUrl: "/assets/images/gallery-boy-tomato.png",
-    caption: "Fresh from the farm — a young boy proudly holds a ripe tomato with coconut trees, granite pillars and drip irrigation in the background"
+    category: GalleryCategory.flourMills,
+    imageUrl: "/assets/generated/gallery-automation-panel.jpg",
+    title: "Flour Mill Automation Panel",
+    projectType: "Automation Panel"
   }
 ];
 const FILTER_TABS = [
   { label: "All", value: "all" },
-  { label: "Farm", value: GalleryCategory.farm },
-  { label: "Vineyard", value: GalleryCategory.vineyard },
-  { label: "Lifestyle", value: GalleryCategory.lifestyle },
-  { label: "Journey", value: GalleryCategory.journey }
+  { label: "Rice Mills", value: GalleryCategory.riceMills },
+  { label: "Flour Mills", value: GalleryCategory.flourMills },
+  { label: "Dal Mills", value: GalleryCategory.dalMills },
+  { label: "Electrical Panels", value: GalleryCategory.electricalPanels },
+  { label: "Installation", value: GalleryCategory.installationProjects }
 ];
 const CATEGORY_META = {
-  [GalleryCategory.farm]: {
-    label: "Farm",
-    gradient: "from-secondary/70 via-secondary/50 to-accent/30"
-  },
-  [GalleryCategory.vineyard]: {
-    label: "Vineyard",
+  [GalleryCategory.riceMills]: {
+    label: "Rice Mills",
     gradient: "from-primary/70 via-primary/40 to-secondary/20"
   },
-  [GalleryCategory.lifestyle]: {
-    label: "Lifestyle",
-    gradient: "from-secondary/70 via-secondary/40 to-muted/20"
+  [GalleryCategory.flourMills]: {
+    label: "Flour Mills",
+    gradient: "from-secondary/70 via-secondary/50 to-accent/30"
   },
-  [GalleryCategory.journey]: {
-    label: "Journey",
+  [GalleryCategory.dalMills]: {
+    label: "Dal Mills",
+    gradient: "from-accent/70 via-accent/40 to-muted/20"
+  },
+  [GalleryCategory.electricalPanels]: {
+    label: "Electrical Panels",
     gradient: "from-foreground/70 via-foreground/40 to-muted/20"
+  },
+  [GalleryCategory.installationProjects]: {
+    label: "Installation",
+    gradient: "from-secondary/60 via-primary/30 to-muted/20"
   }
 };
 const CATEGORY_BADGE_CLASS = {
-  [GalleryCategory.farm]: "bg-secondary/20 text-secondary border-secondary/30",
-  [GalleryCategory.vineyard]: "bg-primary/15 text-primary border-primary/25",
-  [GalleryCategory.lifestyle]: "bg-accent/20 text-accent-foreground border-accent/30",
-  [GalleryCategory.journey]: "bg-muted text-muted-foreground border-border"
+  [GalleryCategory.riceMills]: "bg-primary/15 text-primary border-primary/25",
+  [GalleryCategory.flourMills]: "bg-secondary/20 text-secondary border-secondary/30",
+  [GalleryCategory.dalMills]: "bg-accent/20 text-accent-foreground border-accent/30",
+  [GalleryCategory.electricalPanels]: "bg-muted text-muted-foreground border-border",
+  [GalleryCategory.installationProjects]: "bg-primary/10 text-primary/80 border-primary/20"
 };
 const SKELETON_KEYS = [
   "sk-a",
@@ -146,20 +153,62 @@ function GalleryCard({ item, index, onClick }) {
   const meta = CATEGORY_META[item.category];
   const badgeClass = CATEGORY_BADGE_CLASS[item.category];
   const hasImage = !!item.imageUrl;
+  if (item.isVideo) {
+    return /* @__PURE__ */ jsxRuntimeExports.jsxs(
+      "button",
+      {
+        type: "button",
+        "data-ocid": `gallery.item.${index + 1}`,
+        onClick: () => onClick(item),
+        className: "group relative rounded-xl overflow-hidden bg-primary border-2 border-secondary\n                   ring-2 ring-secondary/30 shadow-lg hover:shadow-2xl hover:ring-secondary/60\n                   transition-all duration-300 focus-visible:outline-none\n                   focus-visible:ring-2 focus-visible:ring-ring text-left w-full col-span-1",
+        children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-secondary text-white text-xs font-body font-bold text-center py-2 tracking-widest uppercase flex items-center justify-center gap-1.5", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { size: 12, className: "fill-white" }),
+            "Featured Video Tour"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative aspect-video overflow-hidden bg-primary", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "video",
+              {
+                src: item.videoUrl,
+                muted: true,
+                loop: true,
+                playsInline: true,
+                preload: "metadata",
+                className: "w-full h-full object-cover opacity-50 transition-smooth group-hover:scale-105 group-hover:opacity-70"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 flex flex-col items-center justify-center gap-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-secondary/90 group-hover:bg-secondary rounded-full p-7 shadow-2xl transition-all duration-300 group-hover:scale-110", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { size: 52, className: "text-white fill-white ml-2" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-white/10 border border-white/20 backdrop-blur-sm text-white text-sm font-display font-semibold px-6 py-2 rounded-full tracking-wide", children: "Click to Watch" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-3 right-3", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "bg-secondary text-white text-xs font-display font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1.5", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Play, { size: 10, className: "fill-white" }),
+              " WATCH"
+            ] }) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-4 py-3.5 bg-primary/95", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "font-display font-bold text-white text-base leading-snug", children: item.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-white/60 text-xs font-body mt-1", children: item.description ?? item.projectType })
+          ] })
+        ]
+      }
+    );
+  }
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
     "button",
     {
       type: "button",
       "data-ocid": `gallery.item.${index + 1}`,
       onClick: () => onClick(item),
-      className: "group relative rounded-xl overflow-hidden bg-card border border-border shadow-sm\n                 hover:shadow-lg hover:-translate-y-0.5 transition-smooth focus-visible:outline-none\n                 focus-visible:ring-2 focus-visible:ring-ring text-left w-full",
+      className: "group relative rounded-lg overflow-hidden bg-white border border-gray-200 shadow-sm\n                 hover:shadow-lg transition-shadow focus-visible:outline-none\n                 focus-visible:ring-2 focus-visible:ring-ring text-left w-full",
       children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative aspect-[4/3] overflow-hidden", children: [
           hasImage ? /* @__PURE__ */ jsxRuntimeExports.jsx(
             "img",
             {
               src: item.imageUrl,
-              alt: item.caption,
+              alt: item.title,
               className: "w-full h-full object-cover transition-smooth group-hover:scale-105"
             }
           ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -187,7 +236,7 @@ function GalleryCard({ item, index, onClick }) {
               children: meta.label
             }
           ),
-          item.caption && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-body text-muted-foreground line-clamp-2 leading-relaxed", children: item.caption })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-body text-muted-foreground line-clamp-2 leading-relaxed", children: item.title })
         ] })
       ]
     }
@@ -221,11 +270,20 @@ function Lightbox({ item, onClose }) {
                 children: /* @__PURE__ */ jsxRuntimeExports.jsx(X, { className: "w-5 h-5 text-foreground" })
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex-1 min-h-0 overflow-hidden", children: hasImage ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex-1 min-h-0 overflow-hidden", children: item.isVideo ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "video",
+              {
+                src: item.videoUrl,
+                controls: true,
+                autoPlay: true,
+                className: "w-full h-full object-contain max-h-[65vh]",
+                children: /* @__PURE__ */ jsxRuntimeExports.jsx("track", { kind: "captions", src: "", label: "No captions available" })
+              }
+            ) : hasImage ? /* @__PURE__ */ jsxRuntimeExports.jsx(
               "img",
               {
                 src: item.imageUrl,
-                alt: item.caption,
+                alt: item.title,
                 className: "w-full h-full object-contain max-h-[65vh]"
               }
             ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(
@@ -248,7 +306,11 @@ function Lightbox({ item, onClose }) {
                   children: meta.label
                 }
               ),
-              item.caption && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm sm:text-base font-body text-foreground/80 leading-relaxed", children: item.caption })
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm sm:text-base font-body text-foreground/80 leading-relaxed", children: [
+                item.title,
+                " — ",
+                item.projectType
+              ] })
             ] })
           ]
         }
@@ -260,7 +322,10 @@ function GalleryPage() {
   const [activeFilter, setActiveFilter] = reactExports.useState("all");
   const [lightboxItem, setLightboxItem] = reactExports.useState(null);
   const { data: allItems = [], isLoading } = useGetGalleryItems();
-  const items = allItems.length > 0 ? allItems : PLACEHOLDER_ITEMS;
+  const rawItems = allItems.length > 0 ? allItems : PLACEHOLDER_ITEMS;
+  const items = [...rawItems].sort(
+    (a, b) => a.isVideo === b.isVideo ? 0 : a.isVideo ? -1 : 1
+  );
   const filtered = activeFilter === "all" ? items : items.filter((i) => i.category === activeFilter);
   const openLightbox = reactExports.useCallback((item) => {
     setLightboxItem(item);
@@ -336,7 +401,7 @@ function GalleryPage() {
         " ",
         /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-foreground", children: filtered.length }),
         " ",
-        filtered.length === 1 ? "photo" : "photos",
+        filtered.length === 1 ? "item" : "items",
         activeFilter !== "all" && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           " ",
           "in ",

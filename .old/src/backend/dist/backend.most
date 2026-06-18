@@ -2,49 +2,64 @@
 type BlogPost__496695373 =
   {
     author : Text;
+    category : Text;
     content : Text;
     date : Int;
     excerpt : Text;
     id : Nat;
+    readTime : Text;
     slug : Text;
     title : Text
   };
 type ContactSubmission__657808989 =
   {
+    company : Text;
     email : Text;
     id : Nat;
+    industry : Text;
     message : Text;
     name : Text;
-    phone : ?Text;
+    phone : Text;
     timestamp : Int
   };
-type GalleryCategory__449810657 = {#farm; #journey; #lifestyle; #vineyard};
+type GalleryCategory__449810657 =
+  {
+    #dalMills;
+    #electricalPanels;
+    #flourMills;
+    #installationProjects;
+    #riceMills
+  };
 type GalleryItem__640770410 =
   {
-    caption : Text;
     category : GalleryCategory__449810657;
     id : Nat;
-    imageUrl : Text
+    imageUrl : Text;
+    isVideo : ?Bool;
+    projectType : Text;
+    title : Text;
+    videoUrl : ?Text
   };
-type Nat__490723111 = Nat__920180692;
+type Nat__1040412405 = Nat__920180692;
 type Nat__920180692 = Nat;
 actor {
   stable galleryItems :
     {
-      var blockIndex : Nat__490723111;
+      var blockIndex : Nat__1040412405;
       var blocks : [var [var ?GalleryItem__640770410]];
-      var elementIndex : Nat__490723111
+      var elementIndex : Nat__1040412405
     };
   stable posts :
     {
-      var blockIndex : Nat__490723111;
+      var blockIndex : Nat__1040412405;
       var blocks : [var [var ?BlogPost__496695373]];
-      var elementIndex : Nat__490723111
+      var elementIndex : Nat__1040412405
     };
+  stable state : {var seeded : Bool};
   stable submissions :
     {
-      var blockIndex : Nat__490723111;
+      var blockIndex : Nat__1040412405;
       var blocks : [var [var ?ContactSubmission__657808989]];
-      var elementIndex : Nat__490723111
+      var elementIndex : Nat__1040412405
     }
 };

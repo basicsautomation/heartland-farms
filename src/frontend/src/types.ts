@@ -1,35 +1,44 @@
 export interface BlogPost {
   id: bigint;
   title: string;
+  excerpt: string;
   content: string;
   date: bigint;
-  slug: string;
   author: string;
-  excerpt: string;
+  slug: string;
+  category: string;
+  readTime: string;
+}
+
+export enum GalleryCategory {
+  riceMills = "riceMills",
+  flourMills = "flourMills",
+  dalMills = "dalMills",
+  electricalPanels = "electricalPanels",
+  installationProjects = "installationProjects",
 }
 
 export interface GalleryItem {
   id: bigint;
   imageUrl: string;
-  caption: string;
+  title: string;
   category: GalleryCategory;
+  projectType: string;
+  videoUrl?: string;
+  isVideo?: boolean;
+  description?: string;
 }
 
 export interface ContactForm {
   name: string;
+  company: string;
+  phone: string;
   email: string;
+  industry: string;
   message: string;
-  phone?: string;
 }
 
 export type NavLink = {
   label: string;
   href: string;
 };
-
-export enum GalleryCategory {
-  journey = "journey",
-  farm = "farm",
-  vineyard = "vineyard",
-  lifestyle = "lifestyle",
-}

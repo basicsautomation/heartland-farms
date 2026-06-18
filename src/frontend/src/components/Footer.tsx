@@ -1,64 +1,104 @@
 import { Separator } from "@/components/ui/separator";
 import { Link } from "@tanstack/react-router";
-import { Leaf, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import {
+  Facebook,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
+  Youtube,
+  Zap,
+} from "lucide-react";
 
 const quickLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Our Practices", href: "/practices" },
-  { label: "Products", href: "/products" },
-  { label: "Gallery", href: "/gallery" },
+  { label: "Home", href: "/" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+];
+
+const serviceLinks = [
+  "Control Panel Design",
+  "PLC Programming",
+  "SCADA Development",
+  "HMI Development",
+  "Electrical Installation",
+  "Site Commissioning",
+];
+
+const industryLinks = [
+  "Rice Mills",
+  "Flour Mills",
+  "Dal Mills",
+  "Feed Mills",
+  "Food Processing",
+  "Packaging Industries",
+];
+
+const socialLinks = [
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    href: "#",
+    ocid: "footer.linkedin_link",
+  },
+  {
+    icon: Facebook,
+    label: "Facebook",
+    href: "#",
+    ocid: "footer.facebook_link",
+  },
+  { icon: Twitter, label: "Twitter", href: "#", ocid: "footer.twitter_link" },
+  { icon: Youtube, label: "YouTube", href: "#", ocid: "footer.youtube_link" },
 ];
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground" data-ocid="footer">
-      {/* Main footer content */}
+    <footer className="bg-primary text-white" data-ocid="footer">
+      {/* Main footer */}
       <div className="container mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* Brand */}
-        <div className="lg:col-span-2">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-9 h-9 rounded-full bg-primary-foreground/15 border border-primary-foreground/30 flex items-center justify-center">
-              <Leaf className="w-4 h-4 text-primary-foreground" />
+        <div>
+          <div className="flex items-center gap-2.5 mb-5">
+            <div className="w-9 h-9 rounded bg-accent flex items-center justify-center">
+              <Zap className="w-5 h-5 text-white" />
             </div>
-            <div>
-              <p className="font-display font-bold text-lg text-primary-foreground leading-tight">
-                Heartland Farms
-              </p>
-              <p className="text-xs text-primary-foreground/60 tracking-widest uppercase">
-                Vijayapura, Karnataka
-              </p>
+            <div className="flex flex-col leading-none">
+              <span className="font-display font-bold text-white text-sm tracking-tight">
+                TEJA
+              </span>
+              <span className="font-display font-bold text-accent text-sm tracking-widest -mt-0.5">
+                CONTROLS
+              </span>
             </div>
           </div>
-          <p className="font-display italic text-primary-foreground/80 text-base mb-5">
-            "Where Nature Meets Innovation"
+          <p className="text-sm text-white/65 font-body leading-relaxed mb-5">
+            Leading provider of Electrical Control Panel Design, Manufacturing,
+            PLC Programming and SCADA solutions for Food Processing Industries
+            across India.
           </p>
-          <p className="text-sm text-primary-foreground/65 font-body leading-relaxed max-w-xs">
-            From a Siemens engineer to a passionate farmer — we cultivate
-            premium produce with integrated, sustainable practices rooted in the
-            rich soils of Vijayapura.
-          </p>
-          {/* Social */}
-          <div className="flex gap-3 mt-6">
-            <a
-              href="https://youtu.be/772WVHHehm4"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Heartland Farms on YouTube"
-              data-ocid="footer.youtube_link"
-              className="w-9 h-9 rounded-full bg-primary-foreground/10 border border-primary-foreground/20 flex items-center justify-center hover:bg-primary-foreground/20 transition-colors duration-200"
-            >
-              <Youtube className="w-4 h-4" />
-            </a>
+          <div className="flex gap-3">
+            {socialLinks.map(({ icon: Icon, label, href, ocid }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Teja Controls on ${label}`}
+                data-ocid={ocid}
+                className="w-9 h-9 rounded bg-white/10 border border-white/20 flex items-center justify-center hover:bg-accent hover:border-accent transition-colors duration-200"
+              >
+                <Icon className="w-4 h-4" />
+              </a>
+            ))}
           </div>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h3 className="font-display font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-4">
+          <h3 className="font-display font-bold text-xs uppercase tracking-widest text-accent mb-4">
             Quick Links
           </h3>
           <ul className="space-y-2.5">
@@ -67,10 +107,46 @@ export default function Footer() {
                 <Link
                   to={link.href}
                   data-ocid={`footer.nav_link.${link.label.toLowerCase().replace(/\s+/g, "_")}`}
-                  className="text-sm font-body text-primary-foreground/75 hover:text-primary-foreground transition-colors duration-200"
+                  className="text-sm font-body text-white/70 hover:text-accent transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
+              </li>
+            ))}
+            <li>
+              <span className="text-xs font-display font-bold text-accent uppercase tracking-widest mt-4 block">
+                Services
+              </span>
+            </li>
+            {serviceLinks.map((s) => (
+              <li key={s}>
+                <a
+                  href="/#services"
+                  data-ocid={`footer.service_link.${s.toLowerCase().replace(/\s+/g, "_")}`}
+                  className="text-sm font-body text-white/70 hover:text-accent transition-colors duration-200"
+                >
+                  {s}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Industries */}
+        <div>
+          <h3 className="font-display font-bold text-xs uppercase tracking-widest text-accent mb-4">
+            Industries
+          </h3>
+          <ul className="space-y-2.5">
+            {industryLinks.map((ind) => (
+              <li key={ind}>
+                <a
+                  href="/#industries"
+                  data-ocid={`footer.industry_link.${ind.toLowerCase().replace(/\s+/g, "_")}`}
+                  className="text-sm font-body text-white/70 hover:text-accent transition-colors duration-200"
+                >
+                  {ind}
+                </a>
               </li>
             ))}
           </ul>
@@ -78,63 +154,66 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="font-display font-semibold text-sm uppercase tracking-wider text-primary-foreground/60 mb-4">
-            Get in Touch
+          <h3 className="font-display font-bold text-xs uppercase tracking-widest text-accent mb-4">
+            Contact
           </h3>
-          <ul className="space-y-3">
-            <li className="flex items-start gap-2.5">
-              <Phone className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
-              <a
-                href="tel:+919980055940"
-                data-ocid="footer.phone_link"
-                className="text-sm font-body text-primary-foreground/75 hover:text-primary-foreground transition-colors duration-200"
-              >
-                +91 99800 55940
-              </a>
+          <ul className="space-y-4">
+            <li className="flex items-start gap-3">
+              <Phone className="w-4 h-4 mt-0.5 text-accent shrink-0" />
+              <div>
+                <p className="text-xs text-white/50 font-body mb-0.5">Phone</p>
+                <a
+                  href="tel:+919902003486"
+                  data-ocid="footer.phone_link"
+                  className="text-sm font-body text-white/80 hover:text-accent transition-colors duration-200"
+                >
+                  +91 9902003486
+                </a>
+              </div>
             </li>
-            <li className="flex items-start gap-2.5">
-              <MapPin className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
-              <span className="text-sm font-body text-primary-foreground/75">
-                Vijayapura, North Karnataka, India
-              </span>
+            <li className="flex items-start gap-3">
+              <Mail className="w-4 h-4 mt-0.5 text-accent shrink-0" />
+              <div>
+                <p className="text-xs text-white/50 font-body mb-0.5">Email</p>
+                <a
+                  href="mailto:Revana@tajascontrols.com"
+                  data-ocid="footer.email_link"
+                  className="text-sm font-body text-white/80 hover:text-accent transition-colors duration-200"
+                >
+                  Revana@tajascontrols.com
+                </a>
+              </div>
             </li>
-            <li className="flex items-start gap-2.5">
-              <Mail className="w-4 h-4 mt-0.5 text-secondary shrink-0" />
-              <a
-                href="/contact"
-                data-ocid="footer.contact_link"
-                className="text-sm font-body text-primary-foreground/75 hover:text-primary-foreground transition-colors duration-200"
-              >
-                Send a Message
-              </a>
+            <li className="flex items-start gap-3">
+              <MapPin className="w-4 h-4 mt-0.5 text-accent shrink-0" />
+              <div>
+                <p className="text-xs text-white/50 font-body mb-0.5">
+                  Location
+                </p>
+                <span className="text-sm font-body text-white/80 leading-snug">
+                  #5, Subramanya Swamy Temple Road,
+                  <br />
+                  Lakshmipura Post, Dasanapura Hobli,
+                  <br />
+                  Kachohalli Industrial Area Road,
+                  <br />
+                  Bengaluru North – 560091
+                </span>
+              </div>
             </li>
           </ul>
         </div>
       </div>
 
-      <Separator className="bg-primary-foreground/10" />
+      <Separator className="bg-white/10" />
 
       {/* Bottom bar */}
       <div className="container mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-xs text-primary-foreground/50 font-body">
-          © {year} Heartland Farms. All rights reserved.
+        <p className="text-xs text-white/50 font-body">
+          © {year} Teja Controls. All rights reserved.
         </p>
-        <p className="text-xs text-primary-foreground/40 font-body flex flex-wrap items-center gap-x-2 gap-y-1 justify-center sm:justify-end">
-          <span>Website designed by Basics Automation</span>
-          <span className="hidden sm:inline opacity-50">|</span>
-          <a
-            href="mailto:basics.automation@gmail.com"
-            className="underline underline-offset-2 hover:text-primary-foreground/60 transition-colors"
-          >
-            basics.automation@gmail.com
-          </a>
-          <span className="hidden sm:inline opacity-50">|</span>
-          <a
-            href="tel:+918050371081"
-            className="underline underline-offset-2 hover:text-primary-foreground/60 transition-colors"
-          >
-            +91 80503 71081
-          </a>
+        <p className="text-xs text-white/30 font-body">
+          Engineering Reliable Automation
         </p>
       </div>
     </footer>

@@ -7,7 +7,7 @@ var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot
 var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
 var __privateMethod = (obj, member, method) => (__accessCheck(obj, member, "access private method"), method);
 var _client, _currentQuery, _currentQueryInitialState, _currentResult, _currentResultState, _currentResultOptions, _currentThenable, _selectError, _selectFn, _selectResult, _lastQueryWithDefinedData, _staleTimeoutId, _refetchIntervalId, _currentRefetchInterval, _trackedProps, _QueryObserver_instances, executeFetch_fn, updateStaleTimeout_fn, computeRefetchInterval_fn, updateRefetchInterval_fn, updateTimers_fn, clearStaleTimeout_fn, clearRefetchInterval_fn, updateQuery_fn, notify_fn, _a;
-import { q as ProtocolError, T as TimeoutWaitingForResponseErrorCode, t as utf8ToBytes, E as ExternalError, v as MissingRootKeyErrorCode, C as Certificate, w as lookupResultToBuffer, x as RequestStatusResponseStatus, U as UnknownError, y as RequestStatusDoneNoReplyErrorCode, z as RejectError, A as CertifiedRejectErrorCode, D as UNREACHABLE_ERROR, I as InputError, F as InvalidReadStateRequestErrorCode, G as ReadRequestType, H as Principal, J as IDL, K as MissingCanisterIdErrorCode, N as HttpAgent, O as encode, Q as QueryResponseStatus, V as UncertifiedRejectErrorCode, W as isV3ResponseBody, Z as isV2ResponseBody, _ as UncertifiedRejectUpdateErrorCode, $ as UnexpectedErrorCode, a0 as decode, f as Subscribable, a1 as pendingThenable, a2 as resolveEnabled, s as shallowEqualObjects, a3 as resolveStaleTime, k as noop, a4 as environmentManager, a5 as isValidTimeout, a6 as timeUntilStale, a7 as timeoutManager, a8 as focusManager, a9 as fetchState, aa as replaceData, n as notifyManager, r as reactExports, l as shouldThrowError, i as useQueryClient, ab as useInternetIdentity, ac as createActorWithConfig, ad as Record, ae as Variant, af as Service, ag as Func, ah as Text, ai as Opt, aj as Vec, ak as Null, al as Int, am as Nat } from "./index-B_yqDsmv.js";
+import { m as ProtocolError, T as TimeoutWaitingForResponseErrorCode, o as utf8ToBytes, E as ExternalError, p as MissingRootKeyErrorCode, C as Certificate, q as lookupResultToBuffer, t as RequestStatusResponseStatus, U as UnknownError, v as RequestStatusDoneNoReplyErrorCode, w as RejectError, x as CertifiedRejectErrorCode, y as UNREACHABLE_ERROR, I as InputError, z as InvalidReadStateRequestErrorCode, A as ReadRequestType, D as Principal, F as IDL, G as MissingCanisterIdErrorCode, H as HttpAgent, J as encode, Q as QueryResponseStatus, K as UncertifiedRejectErrorCode, N as isV3ResponseBody, O as isV2ResponseBody, V as UncertifiedRejectUpdateErrorCode, W as UnexpectedErrorCode, Y as decode, a as Subscribable, _ as pendingThenable, $ as resolveEnabled, s as shallowEqualObjects, a0 as resolveStaleTime, d as noop, a1 as environmentManager, a2 as isValidTimeout, a3 as timeUntilStale, a4 as timeoutManager, a5 as focusManager, a6 as fetchState, a7 as replaceData, n as notifyManager, r as reactExports, e as shouldThrowError, b as useQueryClient, a8 as useInternetIdentity, a9 as createActorWithConfig, aa as Record, ab as Variant, ac as Opt, ad as Service, ae as Func, af as Vec, ag as Text, ah as Null, ai as Int, aj as Nat, ak as Bool } from "./index-D6M-L3AT.js";
 const FIVE_MINUTES_IN_MSEC = 5 * 60 * 1e3;
 function defaultStrategy() {
   return chain(conditionalDelay(once(), 1e3), backoff(1e3, 1.2), timeout(FIVE_MINUTES_IN_MSEC));
@@ -1076,24 +1076,36 @@ const BlogPost = Record({
   "date": Int,
   "slug": Text,
   "author": Text,
-  "excerpt": Text
+  "readTime": Text,
+  "excerpt": Text,
+  "category": Text
 });
 const GalleryCategory = Variant({
-  "journey": Null,
-  "farm": Null,
-  "vineyard": Null,
-  "lifestyle": Null
+  "electricalPanels": Null,
+  "installationProjects": Null,
+  "riceMills": Null,
+  "flourMills": Null,
+  "dalMills": Null
 });
 const GalleryItem = Record({
   "id": Nat,
+  "title": Text,
+  "projectType": Text,
   "imageUrl": Text,
-  "caption": Text,
-  "category": GalleryCategory
+  "category": GalleryCategory,
+  "isVideo": Opt(Bool),
+  "videoUrl": Opt(Text)
 });
 Service({
   "getBlogPost": Func([Text], [Opt(BlogPost)], ["query"]),
   "getBlogPosts": Func([], [Vec(BlogPost)], ["query"]),
+  "getBlogPostsByCategory": Func(
+    [Text],
+    [Vec(BlogPost)],
+    ["query"]
+  ),
   "getContactSubmissionCount": Func([], [Nat], ["query"]),
+  "getGalleryCategories": Func([], [Vec(Text)], ["query"]),
   "getGalleryItems": Func([], [Vec(GalleryItem)], ["query"]),
   "getGalleryItemsByCategory": Func(
     [GalleryCategory],
@@ -1101,7 +1113,7 @@ Service({
     ["query"]
   ),
   "submitContact": Func(
-    [Text, Text, Text, Opt(Text)],
+    [Text, Text, Text, Text, Text, Text],
     [Nat],
     []
   )
@@ -1114,24 +1126,36 @@ const idlFactory = ({ IDL: IDL2 }) => {
     "date": IDL2.Int,
     "slug": IDL2.Text,
     "author": IDL2.Text,
-    "excerpt": IDL2.Text
+    "readTime": IDL2.Text,
+    "excerpt": IDL2.Text,
+    "category": IDL2.Text
   });
   const GalleryCategory2 = IDL2.Variant({
-    "journey": IDL2.Null,
-    "farm": IDL2.Null,
-    "vineyard": IDL2.Null,
-    "lifestyle": IDL2.Null
+    "electricalPanels": IDL2.Null,
+    "installationProjects": IDL2.Null,
+    "riceMills": IDL2.Null,
+    "flourMills": IDL2.Null,
+    "dalMills": IDL2.Null
   });
   const GalleryItem2 = IDL2.Record({
     "id": IDL2.Nat,
+    "title": IDL2.Text,
+    "projectType": IDL2.Text,
     "imageUrl": IDL2.Text,
-    "caption": IDL2.Text,
-    "category": GalleryCategory2
+    "category": GalleryCategory2,
+    "isVideo": IDL2.Opt(IDL2.Bool),
+    "videoUrl": IDL2.Opt(IDL2.Text)
   });
   return IDL2.Service({
     "getBlogPost": IDL2.Func([IDL2.Text], [IDL2.Opt(BlogPost2)], ["query"]),
     "getBlogPosts": IDL2.Func([], [IDL2.Vec(BlogPost2)], ["query"]),
+    "getBlogPostsByCategory": IDL2.Func(
+      [IDL2.Text],
+      [IDL2.Vec(BlogPost2)],
+      ["query"]
+    ),
     "getContactSubmissionCount": IDL2.Func([], [IDL2.Nat], ["query"]),
+    "getGalleryCategories": IDL2.Func([], [IDL2.Vec(IDL2.Text)], ["query"]),
     "getGalleryItems": IDL2.Func([], [IDL2.Vec(GalleryItem2)], ["query"]),
     "getGalleryItemsByCategory": IDL2.Func(
       [GalleryCategory2],
@@ -1139,19 +1163,14 @@ const idlFactory = ({ IDL: IDL2 }) => {
       ["query"]
     ),
     "submitContact": IDL2.Func(
-      [IDL2.Text, IDL2.Text, IDL2.Text, IDL2.Opt(IDL2.Text)],
+      [IDL2.Text, IDL2.Text, IDL2.Text, IDL2.Text, IDL2.Text, IDL2.Text],
       [IDL2.Nat],
       []
     )
   });
 };
-function candid_some(value) {
-  return [
-    value
-  ];
-}
-function candid_none() {
-  return [];
+function record_opt_to_undefined(arg) {
+  return arg == null ? void 0 : arg;
 }
 class Backend {
   constructor(actor, _uploadFile, _downloadFile, processError) {
@@ -1188,6 +1207,20 @@ class Backend {
       return result;
     }
   }
+  async getBlogPostsByCategory(arg0) {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getBlogPostsByCategory(arg0);
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getBlogPostsByCategory(arg0);
+      return result;
+    }
+  }
   async getContactSubmissionCount() {
     if (this.processError) {
       try {
@@ -1199,6 +1232,20 @@ class Backend {
       }
     } else {
       const result = await this.actor.getContactSubmissionCount();
+      return result;
+    }
+  }
+  async getGalleryCategories() {
+    if (this.processError) {
+      try {
+        const result = await this.actor.getGalleryCategories();
+        return result;
+      } catch (e) {
+        this.processError(e);
+        throw new Error("unreachable");
+      }
+    } else {
+      const result = await this.actor.getGalleryCategories();
       return result;
     }
   }
@@ -1219,28 +1266,28 @@ class Backend {
   async getGalleryItemsByCategory(arg0) {
     if (this.processError) {
       try {
-        const result = await this.actor.getGalleryItemsByCategory(to_candid_GalleryCategory_n7(this._uploadFile, this._downloadFile, arg0));
+        const result = await this.actor.getGalleryItemsByCategory(to_candid_GalleryCategory_n9(this._uploadFile, this._downloadFile, arg0));
         return from_candid_vec_n2(this._uploadFile, this._downloadFile, result);
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
-      const result = await this.actor.getGalleryItemsByCategory(to_candid_GalleryCategory_n7(this._uploadFile, this._downloadFile, arg0));
+      const result = await this.actor.getGalleryItemsByCategory(to_candid_GalleryCategory_n9(this._uploadFile, this._downloadFile, arg0));
       return from_candid_vec_n2(this._uploadFile, this._downloadFile, result);
     }
   }
-  async submitContact(arg0, arg1, arg2, arg3) {
+  async submitContact(arg0, arg1, arg2, arg3, arg4, arg5) {
     if (this.processError) {
       try {
-        const result = await this.actor.submitContact(arg0, arg1, arg2, to_candid_opt_n9(this._uploadFile, this._downloadFile, arg3));
+        const result = await this.actor.submitContact(arg0, arg1, arg2, arg3, arg4, arg5);
         return result;
       } catch (e) {
         this.processError(e);
         throw new Error("unreachable");
       }
     } else {
-      const result = await this.actor.submitContact(arg0, arg1, arg2, to_candid_opt_n9(this._uploadFile, this._downloadFile, arg3));
+      const result = await this.actor.submitContact(arg0, arg1, arg2, arg3, arg4, arg5);
       return result;
     }
   }
@@ -1254,35 +1301,43 @@ function from_candid_GalleryItem_n3(_uploadFile, _downloadFile, value) {
 function from_candid_opt_n1(_uploadFile, _downloadFile, value) {
   return value.length === 0 ? null : value[0];
 }
+function from_candid_opt_n7(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n8(_uploadFile, _downloadFile, value) {
+  return value.length === 0 ? null : value[0];
+}
 function from_candid_record_n4(_uploadFile, _downloadFile, value) {
   return {
     id: value.id,
+    title: value.title,
+    projectType: value.projectType,
     imageUrl: value.imageUrl,
-    caption: value.caption,
-    category: from_candid_GalleryCategory_n5(_uploadFile, _downloadFile, value.category)
+    category: from_candid_GalleryCategory_n5(_uploadFile, _downloadFile, value.category),
+    isVideo: record_opt_to_undefined(from_candid_opt_n7(_uploadFile, _downloadFile, value.isVideo)),
+    videoUrl: record_opt_to_undefined(from_candid_opt_n8(_uploadFile, _downloadFile, value.videoUrl))
   };
 }
 function from_candid_variant_n6(_uploadFile, _downloadFile, value) {
-  return "journey" in value ? "journey" : "farm" in value ? "farm" : "vineyard" in value ? "vineyard" : "lifestyle" in value ? "lifestyle" : value;
+  return "electricalPanels" in value ? "electricalPanels" : "installationProjects" in value ? "installationProjects" : "riceMills" in value ? "riceMills" : "flourMills" in value ? "flourMills" : "dalMills" in value ? "dalMills" : value;
 }
 function from_candid_vec_n2(_uploadFile, _downloadFile, value) {
   return value.map((x) => from_candid_GalleryItem_n3(_uploadFile, _downloadFile, x));
 }
-function to_candid_GalleryCategory_n7(_uploadFile, _downloadFile, value) {
-  return to_candid_variant_n8(_uploadFile, _downloadFile, value);
+function to_candid_GalleryCategory_n9(_uploadFile, _downloadFile, value) {
+  return to_candid_variant_n10(_uploadFile, _downloadFile, value);
 }
-function to_candid_opt_n9(_uploadFile, _downloadFile, value) {
-  return value === null ? candid_none() : candid_some(value);
-}
-function to_candid_variant_n8(_uploadFile, _downloadFile, value) {
-  return value == "journey" ? {
-    journey: null
-  } : value == "farm" ? {
-    farm: null
-  } : value == "vineyard" ? {
-    vineyard: null
-  } : value == "lifestyle" ? {
-    lifestyle: null
+function to_candid_variant_n10(_uploadFile, _downloadFile, value) {
+  return value == "electricalPanels" ? {
+    electricalPanels: null
+  } : value == "installationProjects" ? {
+    installationProjects: null
+  } : value == "riceMills" ? {
+    riceMills: null
+  } : value == "flourMills" ? {
+    flourMills: null
+  } : value == "dalMills" ? {
+    dalMills: null
   } : value;
 }
 function createActor(canisterId, _uploadFile, _downloadFile, options = {}) {
@@ -1300,7 +1355,7 @@ function createActor(canisterId, _uploadFile, _downloadFile, options = {}) {
   return new Backend(actor, _uploadFile, _downloadFile, options.processError);
 }
 export {
-  useActor as a,
+  useQuery as a,
   createActor as c,
-  useQuery as u
+  useActor as u
 };

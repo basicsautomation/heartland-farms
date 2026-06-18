@@ -7,14 +7,22 @@ import BlogApi "mixins/blog-api";
 import GalleryApi "mixins/gallery-api";
 import ContactApi "mixins/contact-api";
 
+
+
+
+
 actor {
   let posts = List.empty<Types.BlogPost>();
   let galleryItems = List.empty<Types.GalleryItem>();
   let submissions = List.empty<Types.ContactSubmission>();
+  let state = { var seeded = false };
 
-  // Seed sample data on first run
-  ignore BlogLib.seed(posts, 0);
-  ignore GalleryLib.seed(galleryItems, 0);
+  // Seed data once on first run
+  if (not state.seeded) {
+    ignore BlogLib.seed(posts, 0);
+    ignore GalleryLib.seed(galleryItems, 0);
+    state.seeded := true;
+  };
 
   include BlogApi(posts);
   include GalleryApi(galleryItems);

@@ -1,25 +1,31 @@
 {
-  "overview": "Heartland Farms — a modern, premium marketing website for an agriculture brand in Vijayapura, North Karnataka. Built around the founder's powerful transformation story from Siemens engineer to full-time farmer. Features a rich hero, founder story, farming practices, product showcase, gallery, blog, and WhatsApp-enabled contact — designed for emotional connection and future e-commerce readiness.",
+  "overview": "Premium industrial website for Teja Controls — an electrical control panel design, manufacturing, PLC programming, SCADA, and automation company serving food processing industries across India.",
   "features": [
-    "Hero with YouTube video placeholder and CTAs",
-    "Founder transformation story — corporate to farming",
-    "Farming practices: integrated model, sustainability, crop diversity, vineyards",
-    "Products showcase with 'Online Ordering Coming Soon'",
-    "Gallery with lightbox for farm, vineyard, lifestyle, and journey photos",
-    "Blog foundation with 4 sample posts for SEO and branding",
-    "Contact with WhatsApp button, form, map, and social links",
-    "Mobile-first, earthy premium design in deep green, soil brown, and light cream",
-    "SEO-optimized semantic HTML with keywords for organic and sustainable farming"
+    "Full-viewport hero with industrial workshop background and CTAs",
+    "Animated statistics counters",
+    "8 service cards with hover effects",
+    "6 industry cards with professional images",
+    "Featured solutions for Rice/Flour/Dal mill automation",
+    "8 product range categories",
+    "Filterable masonry project gallery with lightbox",
+    "Testimonial carousel",
+    "7-step process flow diagram",
+    "3-4 pre-written blog articles",
+    "Contact form with Google Map",
+    "WhatsApp floating button",
+    "Sticky navigation with scroll animations",
+    "Fully responsive mobile and desktop layout"
   ],
-  "category": "marketing-showcase",
+  "category": "landing-page",
   "tags": [
-    "agriculture",
-    "farming",
-    "sustainability",
-    "brand",
-    "marketing",
+    "industrial",
+    "automation",
+    "manufacturing",
+    "b2b",
     "india",
-    "organic"
+    "plc",
+    "scada",
+    "control-panels"
   ],
-  "last_updated": "2026-04-23T04:20:49.006Z"
+  "last_updated": "2026-06-16T10:33:17.886Z"
 }

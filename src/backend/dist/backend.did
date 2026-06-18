@@ -1,34 +1,42 @@
 type GalleryItem = 
  record {
-   caption: text;
    category: GalleryCategory;
    id: nat;
    imageUrl: text;
+   isVideo: opt bool;
+   projectType: text;
+   title: text;
+   videoUrl: opt text;
  };
 type GalleryCategory = 
  variant {
-   farm;
-   journey;
-   lifestyle;
-   vineyard;
+   dalMills;
+   electricalPanels;
+   flourMills;
+   installationProjects;
+   riceMills;
  };
 type BlogPost = 
  record {
    author: text;
+   category: text;
    content: text;
    date: int;
    excerpt: text;
    id: nat;
+   readTime: text;
    slug: text;
    title: text;
  };
 service : {
   getBlogPost: (slug: text) -> (opt BlogPost) query;
   getBlogPosts: () -> (vec BlogPost) query;
+  getBlogPostsByCategory: (category: text) -> (vec BlogPost) query;
   getContactSubmissionCount: () -> (nat) query;
+  getGalleryCategories: () -> (vec text) query;
   getGalleryItems: () -> (vec GalleryItem) query;
   getGalleryItemsByCategory: (category: GalleryCategory) ->
    (vec GalleryItem) query;
-  submitContact: (name: text, email: text, message: text, phone: opt text) ->
-   (nat);
+  submitContact: (name: text, company: text, phone: text, email: text,
+   industry: text, message: text) -> (nat);
 }

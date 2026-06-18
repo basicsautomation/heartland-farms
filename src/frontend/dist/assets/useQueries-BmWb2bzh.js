@@ -1,5 +1,5 @@
-import "./index-B_yqDsmv.js";
-import { u as useQuery, a as useActor, c as createActor } from "./backend-CN5Y_TMj.js";
+import "./index-D6M-L3AT.js";
+import { a as useQuery, u as useActor, c as createActor } from "./backend-D5qmZiZF.js";
 function useBackendActor() {
   return useActor(createActor);
 }
@@ -25,13 +25,18 @@ function useGetBlogPost(slug) {
     enabled: !!actor && !isFetching && !!slug
   });
 }
-function useGetGalleryItems(category) {
+function useGetGalleryItems() {
   const { actor, isFetching } = useBackendActor();
   return useQuery({
     queryKey: ["galleryItems", "all"],
     queryFn: async () => {
       if (!actor) return [];
-      return actor.getGalleryItems();
+      const items = await actor.getGalleryItems();
+      return items.map((item) => {
+        const url = item.imageUrl ?? "";
+        const isVid = /\.(mp4|webm|ogg|mov)$/i.test(url) || "isVideo" in item && Boolean(item.isVideo);
+        return isVid ? { ...item, isVideo: true, videoUrl: url } : item;
+      });
     },
     enabled: !!actor && !isFetching
   });

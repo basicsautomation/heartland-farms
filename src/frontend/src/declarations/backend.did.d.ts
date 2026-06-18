@@ -17,29 +17,37 @@ export interface BlogPost {
   'date' : bigint,
   'slug' : string,
   'author' : string,
+  'readTime' : string,
   'excerpt' : string,
+  'category' : string,
 }
-export type GalleryCategory = { 'journey' : null } |
-  { 'farm' : null } |
-  { 'vineyard' : null } |
-  { 'lifestyle' : null };
+export type GalleryCategory = { 'electricalPanels' : null } |
+  { 'installationProjects' : null } |
+  { 'riceMills' : null } |
+  { 'flourMills' : null } |
+  { 'dalMills' : null };
 export interface GalleryItem {
   'id' : bigint,
+  'title' : string,
+  'projectType' : string,
   'imageUrl' : string,
-  'caption' : string,
   'category' : GalleryCategory,
+  'isVideo' : [] | [boolean],
+  'videoUrl' : [] | [string],
 }
 export interface _SERVICE {
   'getBlogPost' : ActorMethod<[string], [] | [BlogPost]>,
   'getBlogPosts' : ActorMethod<[], Array<BlogPost>>,
+  'getBlogPostsByCategory' : ActorMethod<[string], Array<BlogPost>>,
   'getContactSubmissionCount' : ActorMethod<[], bigint>,
+  'getGalleryCategories' : ActorMethod<[], Array<string>>,
   'getGalleryItems' : ActorMethod<[], Array<GalleryItem>>,
   'getGalleryItemsByCategory' : ActorMethod<
     [GalleryCategory],
     Array<GalleryItem>
   >,
   'submitContact' : ActorMethod<
-    [string, string, string, [] | [string]],
+    [string, string, string, string, string, string],
     bigint
   >,
 }

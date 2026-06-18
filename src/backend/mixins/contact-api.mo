@@ -7,12 +7,14 @@ mixin (
 ) {
   public func submitContact(
     name : Text,
+    company : Text,
+    phone : Text,
     email : Text,
+    industry : Text,
     message : Text,
-    phone : ?Text,
   ) : async Nat {
     let nextId = submissions.size();
-    let _ = ContactLib.submit(submissions, nextId, name, email, message, phone);
+    let _ = ContactLib.submit(submissions, nextId, name, company, phone, email, industry, message);
     ContactLib.count(submissions);
   };
 

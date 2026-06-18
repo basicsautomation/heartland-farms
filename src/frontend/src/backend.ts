@@ -96,27 +96,35 @@ export interface BlogPost {
     date: bigint;
     slug: string;
     author: string;
+    readTime: string;
     excerpt: string;
+    category: string;
 }
 export interface GalleryItem {
     id: bigint;
+    title: string;
+    projectType: string;
     imageUrl: string;
-    caption: string;
     category: GalleryCategory;
+    isVideo?: boolean;
+    videoUrl?: string;
 }
 export enum GalleryCategory {
-    journey = "journey",
-    farm = "farm",
-    vineyard = "vineyard",
-    lifestyle = "lifestyle"
+    electricalPanels = "electricalPanels",
+    installationProjects = "installationProjects",
+    riceMills = "riceMills",
+    flourMills = "flourMills",
+    dalMills = "dalMills"
 }
 export interface backendInterface {
     getBlogPost(slug: string): Promise<BlogPost | null>;
     getBlogPosts(): Promise<Array<BlogPost>>;
+    getBlogPostsByCategory(category: string): Promise<Array<BlogPost>>;
     getContactSubmissionCount(): Promise<bigint>;
+    getGalleryCategories(): Promise<Array<string>>;
     getGalleryItems(): Promise<Array<GalleryItem>>;
     getGalleryItemsByCategory(category: GalleryCategory): Promise<Array<GalleryItem>>;
-    submitContact(name: string, email: string, message: string, phone: string | null): Promise<bigint>;
+    submitContact(name: string, company: string, phone: string, email: string, industry: string, message: string): Promise<bigint>;
 }
 import type { BlogPost as _BlogPost, GalleryCategory as _GalleryCategory, GalleryItem as _GalleryItem } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
@@ -149,6 +157,20 @@ export class Backend implements backendInterface {
             return result;
         }
     }
+    async getBlogPostsByCategory(arg0: string): Promise<Array<BlogPost>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getBlogPostsByCategory(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getBlogPostsByCategory(arg0);
+            return result;
+        }
+    }
     async getContactSubmissionCount(): Promise<bigint> {
         if (this.processError) {
             try {
@@ -160,6 +182,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.getContactSubmissionCount();
+            return result;
+        }
+    }
+    async getGalleryCategories(): Promise<Array<string>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getGalleryCategories();
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getGalleryCategories();
             return result;
         }
     }
@@ -180,28 +216,28 @@ export class Backend implements backendInterface {
     async getGalleryItemsByCategory(arg0: GalleryCategory): Promise<Array<GalleryItem>> {
         if (this.processError) {
             try {
-                const result = await this.actor.getGalleryItemsByCategory(to_candid_GalleryCategory_n7(this._uploadFile, this._downloadFile, arg0));
+                const result = await this.actor.getGalleryItemsByCategory(to_candid_GalleryCategory_n9(this._uploadFile, this._downloadFile, arg0));
                 return from_candid_vec_n2(this._uploadFile, this._downloadFile, result);
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.getGalleryItemsByCategory(to_candid_GalleryCategory_n7(this._uploadFile, this._downloadFile, arg0));
+            const result = await this.actor.getGalleryItemsByCategory(to_candid_GalleryCategory_n9(this._uploadFile, this._downloadFile, arg0));
             return from_candid_vec_n2(this._uploadFile, this._downloadFile, result);
         }
     }
-    async submitContact(arg0: string, arg1: string, arg2: string, arg3: string | null): Promise<bigint> {
+    async submitContact(arg0: string, arg1: string, arg2: string, arg3: string, arg4: string, arg5: string): Promise<bigint> {
         if (this.processError) {
             try {
-                const result = await this.actor.submitContact(arg0, arg1, arg2, to_candid_opt_n9(this._uploadFile, this._downloadFile, arg3));
+                const result = await this.actor.submitContact(arg0, arg1, arg2, arg3, arg4, arg5);
                 return result;
             } catch (e) {
                 this.processError(e);
                 throw new Error("unreachable");
             }
         } else {
-            const result = await this.actor.submitContact(arg0, arg1, arg2, to_candid_opt_n9(this._uploadFile, this._downloadFile, arg3));
+            const result = await this.actor.submitContact(arg0, arg1, arg2, arg3, arg4, arg5);
             return result;
         }
     }
@@ -215,61 +251,79 @@ function from_candid_GalleryItem_n3(_uploadFile: (file: ExternalBlob) => Promise
 function from_candid_opt_n1(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [_BlogPost]): BlogPost | null {
     return value.length === 0 ? null : value[0];
 }
+function from_candid_opt_n7(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [boolean]): boolean | null {
+    return value.length === 0 ? null : value[0];
+}
+function from_candid_opt_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: [] | [string]): string | null {
+    return value.length === 0 ? null : value[0];
+}
 function from_candid_record_n4(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
     id: bigint;
+    title: string;
+    projectType: string;
     imageUrl: string;
-    caption: string;
     category: _GalleryCategory;
+    isVideo: [] | [boolean];
+    videoUrl: [] | [string];
 }): {
     id: bigint;
+    title: string;
+    projectType: string;
     imageUrl: string;
-    caption: string;
     category: GalleryCategory;
+    isVideo?: boolean;
+    videoUrl?: string;
 } {
     return {
         id: value.id,
+        title: value.title,
+        projectType: value.projectType,
         imageUrl: value.imageUrl,
-        caption: value.caption,
-        category: from_candid_GalleryCategory_n5(_uploadFile, _downloadFile, value.category)
+        category: from_candid_GalleryCategory_n5(_uploadFile, _downloadFile, value.category),
+        isVideo: record_opt_to_undefined(from_candid_opt_n7(_uploadFile, _downloadFile, value.isVideo)),
+        videoUrl: record_opt_to_undefined(from_candid_opt_n8(_uploadFile, _downloadFile, value.videoUrl))
     };
 }
 function from_candid_variant_n6(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: {
-    journey: null;
+    electricalPanels: null;
 } | {
-    farm: null;
+    installationProjects: null;
 } | {
-    vineyard: null;
+    riceMills: null;
 } | {
-    lifestyle: null;
+    flourMills: null;
+} | {
+    dalMills: null;
 }): GalleryCategory {
-    return "journey" in value ? GalleryCategory.journey : "farm" in value ? GalleryCategory.farm : "vineyard" in value ? GalleryCategory.vineyard : "lifestyle" in value ? GalleryCategory.lifestyle : value;
+    return "electricalPanels" in value ? GalleryCategory.electricalPanels : "installationProjects" in value ? GalleryCategory.installationProjects : "riceMills" in value ? GalleryCategory.riceMills : "flourMills" in value ? GalleryCategory.flourMills : "dalMills" in value ? GalleryCategory.dalMills : value;
 }
 function from_candid_vec_n2(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: Array<_GalleryItem>): Array<GalleryItem> {
     return value.map((x)=>from_candid_GalleryItem_n3(_uploadFile, _downloadFile, x));
 }
-function to_candid_GalleryCategory_n7(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: GalleryCategory): _GalleryCategory {
-    return to_candid_variant_n8(_uploadFile, _downloadFile, value);
+function to_candid_GalleryCategory_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: GalleryCategory): _GalleryCategory {
+    return to_candid_variant_n10(_uploadFile, _downloadFile, value);
 }
-function to_candid_opt_n9(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: string | null): [] | [string] {
-    return value === null ? candid_none() : candid_some(value);
-}
-function to_candid_variant_n8(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: GalleryCategory): {
-    journey: null;
+function to_candid_variant_n10(_uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, value: GalleryCategory): {
+    electricalPanels: null;
 } | {
-    farm: null;
+    installationProjects: null;
 } | {
-    vineyard: null;
+    riceMills: null;
 } | {
-    lifestyle: null;
+    flourMills: null;
+} | {
+    dalMills: null;
 } {
-    return value == GalleryCategory.journey ? {
-        journey: null
-    } : value == GalleryCategory.farm ? {
-        farm: null
-    } : value == GalleryCategory.vineyard ? {
-        vineyard: null
-    } : value == GalleryCategory.lifestyle ? {
-        lifestyle: null
+    return value == GalleryCategory.electricalPanels ? {
+        electricalPanels: null
+    } : value == GalleryCategory.installationProjects ? {
+        installationProjects: null
+    } : value == GalleryCategory.riceMills ? {
+        riceMills: null
+    } : value == GalleryCategory.flourMills ? {
+        flourMills: null
+    } : value == GalleryCategory.dalMills ? {
+        dalMills: null
     } : value;
 }
 export interface CreateActorOptions {

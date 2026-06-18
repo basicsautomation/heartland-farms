@@ -8,17 +8,16 @@ import {
 import Layout from "./components/Layout";
 
 import { Skeleton } from "@/components/ui/skeleton";
-// Lazy page imports
 import { Suspense, lazy } from "react";
 
 const HomePage = lazy(() => import("./pages/Home"));
+const BlogPage = lazy(() => import("./pages/Blog"));
+const BlogPostPage = lazy(() => import("./pages/BlogPost"));
+const ContactPage = lazy(() => import("./pages/Contact"));
 const AboutPage = lazy(() => import("./pages/About"));
 const PracticesPage = lazy(() => import("./pages/Practices"));
 const ProductsPage = lazy(() => import("./pages/Products"));
 const GalleryPage = lazy(() => import("./pages/Gallery"));
-const BlogPage = lazy(() => import("./pages/Blog"));
-const BlogPostPage = lazy(() => import("./pages/BlogPost"));
-const ContactPage = lazy(() => import("./pages/Contact"));
 
 function PageLoader() {
   return (
@@ -44,6 +43,22 @@ const homeRoute = createRoute({
   path: "/",
   component: HomePage,
 });
+const blogRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/blog",
+  component: BlogPage,
+});
+const blogPostRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/blog/$slug",
+  component: BlogPostPage,
+});
+const contactRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: "/contact",
+  component: ContactPage,
+});
+
 const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/about",
@@ -64,31 +79,16 @@ const galleryRoute = createRoute({
   path: "/gallery",
   component: GalleryPage,
 });
-const blogRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/blog",
-  component: BlogPage,
-});
-const blogPostRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/blog/$slug",
-  component: BlogPostPage,
-});
-const contactRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: "/contact",
-  component: ContactPage,
-});
 
 const routeTree = rootRoute.addChildren([
   homeRoute,
+  blogRoute,
+  blogPostRoute,
+  contactRoute,
   aboutRoute,
   practicesRoute,
   productsRoute,
   galleryRoute,
-  blogRoute,
-  blogPostRoute,
-  contactRoute,
 ]);
 
 const router = createRouter({ routeTree });

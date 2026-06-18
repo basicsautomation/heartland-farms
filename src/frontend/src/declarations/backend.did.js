@@ -15,25 +15,37 @@ export const BlogPost = IDL.Record({
   'date' : IDL.Int,
   'slug' : IDL.Text,
   'author' : IDL.Text,
+  'readTime' : IDL.Text,
   'excerpt' : IDL.Text,
+  'category' : IDL.Text,
 });
 export const GalleryCategory = IDL.Variant({
-  'journey' : IDL.Null,
-  'farm' : IDL.Null,
-  'vineyard' : IDL.Null,
-  'lifestyle' : IDL.Null,
+  'electricalPanels' : IDL.Null,
+  'installationProjects' : IDL.Null,
+  'riceMills' : IDL.Null,
+  'flourMills' : IDL.Null,
+  'dalMills' : IDL.Null,
 });
 export const GalleryItem = IDL.Record({
   'id' : IDL.Nat,
+  'title' : IDL.Text,
+  'projectType' : IDL.Text,
   'imageUrl' : IDL.Text,
-  'caption' : IDL.Text,
   'category' : GalleryCategory,
+  'isVideo' : IDL.Opt(IDL.Bool),
+  'videoUrl' : IDL.Opt(IDL.Text),
 });
 
 export const idlService = IDL.Service({
   'getBlogPost' : IDL.Func([IDL.Text], [IDL.Opt(BlogPost)], ['query']),
   'getBlogPosts' : IDL.Func([], [IDL.Vec(BlogPost)], ['query']),
+  'getBlogPostsByCategory' : IDL.Func(
+      [IDL.Text],
+      [IDL.Vec(BlogPost)],
+      ['query'],
+    ),
   'getContactSubmissionCount' : IDL.Func([], [IDL.Nat], ['query']),
+  'getGalleryCategories' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
   'getGalleryItems' : IDL.Func([], [IDL.Vec(GalleryItem)], ['query']),
   'getGalleryItemsByCategory' : IDL.Func(
       [GalleryCategory],
@@ -41,7 +53,7 @@ export const idlService = IDL.Service({
       ['query'],
     ),
   'submitContact' : IDL.Func(
-      [IDL.Text, IDL.Text, IDL.Text, IDL.Opt(IDL.Text)],
+      [IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text],
       [IDL.Nat],
       [],
     ),
@@ -57,25 +69,37 @@ export const idlFactory = ({ IDL }) => {
     'date' : IDL.Int,
     'slug' : IDL.Text,
     'author' : IDL.Text,
+    'readTime' : IDL.Text,
     'excerpt' : IDL.Text,
+    'category' : IDL.Text,
   });
   const GalleryCategory = IDL.Variant({
-    'journey' : IDL.Null,
-    'farm' : IDL.Null,
-    'vineyard' : IDL.Null,
-    'lifestyle' : IDL.Null,
+    'electricalPanels' : IDL.Null,
+    'installationProjects' : IDL.Null,
+    'riceMills' : IDL.Null,
+    'flourMills' : IDL.Null,
+    'dalMills' : IDL.Null,
   });
   const GalleryItem = IDL.Record({
     'id' : IDL.Nat,
+    'title' : IDL.Text,
+    'projectType' : IDL.Text,
     'imageUrl' : IDL.Text,
-    'caption' : IDL.Text,
     'category' : GalleryCategory,
+    'isVideo' : IDL.Opt(IDL.Bool),
+    'videoUrl' : IDL.Opt(IDL.Text),
   });
   
   return IDL.Service({
     'getBlogPost' : IDL.Func([IDL.Text], [IDL.Opt(BlogPost)], ['query']),
     'getBlogPosts' : IDL.Func([], [IDL.Vec(BlogPost)], ['query']),
+    'getBlogPostsByCategory' : IDL.Func(
+        [IDL.Text],
+        [IDL.Vec(BlogPost)],
+        ['query'],
+      ),
     'getContactSubmissionCount' : IDL.Func([], [IDL.Nat], ['query']),
+    'getGalleryCategories' : IDL.Func([], [IDL.Vec(IDL.Text)], ['query']),
     'getGalleryItems' : IDL.Func([], [IDL.Vec(GalleryItem)], ['query']),
     'getGalleryItemsByCategory' : IDL.Func(
         [GalleryCategory],
@@ -83,7 +107,7 @@ export const idlFactory = ({ IDL }) => {
         ['query'],
       ),
     'submitContact' : IDL.Func(
-        [IDL.Text, IDL.Text, IDL.Text, IDL.Opt(IDL.Text)],
+        [IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text, IDL.Text],
         [IDL.Nat],
         [],
       ),
